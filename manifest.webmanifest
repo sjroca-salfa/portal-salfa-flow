@@ -1,0 +1,55 @@
+{
+  "name": "Salfa Flow · Gestión de Proyectos y Obras",
+  "short_name": "Salfa Flow",
+  "description": "Plataforma móvil corporativa de gestión de tareas, proyectos y minutas en faena para Salfa Montajes",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#161616",
+  "theme_color": "#B01E24",
+  "lang": "es-CL",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo-salfa-montajes-claro.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mis Tareas",
+      "short_name": "Tareas",
+      "description": "Ver mis actividades pendientes en obra",
+      "url": "./index.html?view=my-tasks",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Bandeja de Entrada",
+      "short_name": "Bandeja",
+      "description": "Notificaciones y novedades del proyecto",
+      "url": "./index.html?view=inbox",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Reportar en Terreno",
+      "short_name": "Terreno",
+      "description": "Nueva tarea con foto de inspección",
+      "url": "./index.html?action=field-capture",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

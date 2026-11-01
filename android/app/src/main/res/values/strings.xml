@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Salfa Flow</string>
+    <string name="app_desc">Gestión de Proyectos, Obras y Tareas Corporativas · Salfa Montajes</string>
+    <string name="error_no_internet">Sin conexión a Internet. Operando en Modo Terreno local.</string>
+    <string name="retry_connection">Reintentar</string>
+    <string name="exit_confirm_title">¿Salir de Salfa Flow?</string>
+    <string name="exit_confirm_msg">¿Deseas cerrar la aplicación de gestión de obras?</string>
+    <string name="yes">Sí, Salir</string>
+    <string name="no">Continuar</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo corporativo Salfa oscuro -->
+    <item>
+        <color android:color="@color/salfa_dark" />
+    </item>
+    <!-- Logotipo central -->
+    <item
+        android:width="180dp"
+        android:height="60dp"
+        android:gravity="center"
+        android:drawable="@drawable/ic_salfa_logo" />
+</layer-list>

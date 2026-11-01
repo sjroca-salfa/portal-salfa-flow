@@ -1,0 +1,5 @@
+test_state_*.png
+verify_portal_cdp.js
+*.log
+.DS_Store
+Thumbs.db

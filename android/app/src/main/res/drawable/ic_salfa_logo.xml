@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="60dp"
+    android:viewportWidth="200"
+    android:viewportHeight="60">
+    <!-- Logotipo Corporativo Salfa Vectorial -->
+    <path
+        android:fillColor="#B01E24"
+        android:pathData="M15,10 h30 v10 h-20 v10 h15 v10 h-15 v10 h20 v10 h-30 z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M55,10 h10 v40 h20 v10 h-30 z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M95,10 h30 v10 h-20 v10 h15 v10 h-15 v20 h-10 z" />
+    <path
+        android:fillColor="#B01E24"
+        android:pathData="M140,10 h10 l15,50 h-12 l-3,-10 h-10 l-3,10 h-12 z M143,40 h6 l-3,-12 z" />
+</vector>
