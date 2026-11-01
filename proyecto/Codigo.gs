@@ -84,12 +84,18 @@ function doPost(e) {
       case 'inicializar':
         res.data = inicializarLibro_();
         break;
+      case 'ping':
+        res.data = { status: 'pong', version: '2.0', timestamp: new Date().toISOString() };
+        break;
       case 'sincronizar':
       case 'sincronizarDatos':
         res.data = sincronizarDatos_(payload.datos || {}, usuario);
         break;
       case 'listarTareas':
         res.data = listarTareas_();
+        break;
+      case 'listarProyectos':
+        res.data = listarProyectos_();
         break;
       case 'guardarTarea':
         res.data = guardarTarea_(payload.tarea || {}, usuario);
@@ -103,8 +109,18 @@ function doPost(e) {
       case 'cambiarEstadoTarea':
         res.data = cambiarEstadoTarea_(payload.id, payload.nuevoEstado, payload.completada, usuario);
         break;
+      case 'guardarSubtarea':
+        res.data = guardarSubtarea_(payload.tareaId, payload.subtarea, usuario);
+        break;
+      case 'guardarComentario':
+        res.data = guardarComentario_(payload.tareaId, payload.comentario, usuario);
+        break;
       case 'obtenerEstadoCompleto':
-        res.data = { tareas: listarTareas_(), proyectos: listarProyectos_() };
+        res.data = {
+          tareas: listarTareas_(),
+          proyectos: listarProyectos_(),
+          timestamp: new Date().toISOString()
+        };
         break;
       default:
         res = { ok: false, error: 'Acción no reconocida: ' + accion };
@@ -120,8 +136,21 @@ function doPost(e) {
 function handleApiGet_(params) {
   try {
     var tipo = params.tipo || 'tareas';
+    if (tipo === 'ping') {
+      return jsonResponse_({ ok: true, status: 'pong', version: '2.0', timestamp: new Date().toISOString() });
+    }
     if (tipo === 'proyectos') {
       return jsonResponse_({ ok: true, data: listarProyectos_() });
+    }
+    if (tipo === 'all' || tipo === 'estado') {
+      return jsonResponse_({
+        ok: true,
+        data: {
+          tareas: listarTareas_(),
+          proyectos: listarProyectos_(),
+          timestamp: new Date().toISOString()
+        }
+      });
     }
     return jsonResponse_({ ok: true, data: listarTareas_() });
   } catch (e) {
@@ -213,6 +242,38 @@ function sincronizarDatos_(appState, usuario) {
     if (filasTareas.length > 0) {
       hojaTareas.getRange(2, 1, filasTareas.length, filasTareas[0].length).setValues(filasTareas);
     }
+
+    // Sync subtasks
+    var hojaSub = ss.getSheetByName(HOJA_SUBTAREAS);
+    var lastSubRow = hojaSub.getLastRow();
+    if (lastSubRow > 1) hojaSub.deleteRows(2, lastSubRow - 1);
+    var filasSub = [];
+    appState.tasks.forEach(function(t) {
+      if (t.subtasks && t.subtasks.length > 0) {
+        t.subtasks.forEach(function(st) {
+          filasSub.push([st.id || ('st_' + Date.now()), t.id, st.title || '', st.completed ? 'SI' : 'NO']);
+        });
+      }
+    });
+    if (filasSub.length > 0) {
+      hojaSub.getRange(2, 1, filasSub.length, filasSub[0].length).setValues(filasSub);
+    }
+
+    // Sync comments
+    var hojaCom = ss.getSheetByName(HOJA_COMENTARIOS);
+    var lastComRow = hojaCom.getLastRow();
+    if (lastComRow > 1) hojaCom.deleteRows(2, lastComRow - 1);
+    var filasCom = [];
+    appState.tasks.forEach(function(t) {
+      if (t.comments && t.comments.length > 0) {
+        t.comments.forEach(function(cm) {
+          filasCom.push([cm.id || ('cm_' + Date.now()), t.id, cm.author || usuario, cm.time || new Date().toISOString(), cm.text || '']);
+        });
+      }
+    });
+    if (filasCom.length > 0) {
+      hojaCom.getRange(2, 1, filasCom.length, filasCom[0].length).setValues(filasCom);
+    }
   }
 
   registrarBitacora_(usuario, 'SINCRONIZAR_TODO', 'GLOBAL', 'Sincronizadas ' + (appState.tasks ? appState.tasks.length : 0) + ' tareas');
@@ -220,7 +281,7 @@ function sincronizarDatos_(appState, usuario) {
 }
 
 /**
- * Guarda o actualiza una tarea en la hoja TAREAS
+ * Guarda o actualiza una tarea en la hoja TAREAS, junto con subtareas y comentarios
  */
 function guardarTarea_(tarea, usuario) {
   if (!tarea || !tarea.title) {
@@ -267,6 +328,40 @@ function guardarTarea_(tarea, usuario) {
   } else {
     hoja.appendRow(fila);
     registrarBitacora_(usuario, 'CREAR_TAREA', id, 'Tarea "' + tarea.title + '" creada');
+  }
+
+  // Update subtareas
+  if (tarea.subtasks && Array.isArray(tarea.subtasks)) {
+    var hojaSub = ss.getSheetByName(HOJA_SUBTAREAS);
+    var lastSubRow = hojaSub.getLastRow();
+    if (lastSubRow > 1) {
+      var subData = hojaSub.getRange(2, 1, lastSubRow - 1, 2).getValues();
+      for (var s = subData.length - 1; s >= 0; s--) {
+        if (String(subData[s][1]) === String(id)) {
+          hojaSub.deleteRow(s + 2);
+        }
+      }
+    }
+    tarea.subtasks.forEach(function(st) {
+      hojaSub.appendRow([st.id || ('st_' + Date.now()), id, st.title || '', st.completed ? 'SI' : 'NO']);
+    });
+  }
+
+  // Update comments
+  if (tarea.comments && Array.isArray(tarea.comments)) {
+    var hojaCom = ss.getSheetByName(HOJA_COMENTARIOS);
+    var lastComRow = hojaCom.getLastRow();
+    if (lastComRow > 1) {
+      var comData = hojaCom.getRange(2, 1, lastComRow - 1, 2).getValues();
+      for (var c = comData.length - 1; c >= 0; c--) {
+        if (String(comData[c][1]) === String(id)) {
+          hojaCom.deleteRow(c + 2);
+        }
+      }
+    }
+    tarea.comments.forEach(function(cm) {
+      hojaCom.appendRow([cm.id || ('cm_' + Date.now()), id, cm.author || usuario, cm.time || ahora, cm.text || '']);
+    });
   }
 
   return { ok: true, id: id, tarea: tarea, timestamp: ahora };
@@ -318,7 +413,7 @@ function guardarProyecto_(proyecto, usuario) {
 }
 
 /**
- * Elimina una tarea por ID
+ * Elimina una tarea por ID (y limpia sus subtareas y comentarios)
  */
 function eliminarTarea_(id, usuario) {
   var ss = getSs_();
@@ -329,6 +424,25 @@ function eliminarTarea_(id, usuario) {
   for (var i = 0; i < ids.length; i++) {
     if (String(ids[i][0]) === String(id)) {
       hoja.deleteRow(i + 2);
+      
+      // Cleanup subtasks
+      var hojaSub = ss.getSheetByName(HOJA_SUBTAREAS);
+      if (hojaSub && hojaSub.getLastRow() > 1) {
+        var subData = hojaSub.getRange(2, 1, hojaSub.getLastRow() - 1, 2).getValues();
+        for (var s = subData.length - 1; s >= 0; s--) {
+          if (String(subData[s][1]) === String(id)) hojaSub.deleteRow(s + 2);
+        }
+      }
+
+      // Cleanup comments
+      var hojaCom = ss.getSheetByName(HOJA_COMENTARIOS);
+      if (hojaCom && hojaCom.getLastRow() > 1) {
+        var comData = hojaCom.getRange(2, 1, hojaCom.getLastRow() - 1, 2).getValues();
+        for (var c = comData.length - 1; c >= 0; c--) {
+          if (String(comData[c][1]) === String(id)) hojaCom.deleteRow(c + 2);
+        }
+      }
+
       registrarBitacora_(usuario, 'ELIMINAR_TAREA', id, 'Tarea eliminada');
       return { ok: true, id: id };
     }
@@ -358,26 +472,79 @@ function cambiarEstadoTarea_(id, nuevoEstado, completada, usuario) {
   return { ok: false, error: 'Tarea no encontrada' };
 }
 
+function guardarSubtarea_(tareaId, subtarea, usuario) {
+  if (!tareaId || !subtarea || !subtarea.title) return { ok: false, error: 'Datos incompletos' };
+  var ss = getSs_();
+  inicializarLibro_();
+  var hoja = ss.getSheetByName(HOJA_SUBTAREAS);
+  var stId = subtarea.id || ('st_' + Date.now());
+  hoja.appendRow([stId, tareaId, subtarea.title, subtarea.completed ? 'SI' : 'NO']);
+  registrarBitacora_(usuario, 'AGREGAR_SUBTAREA', tareaId, 'Subtarea "' + subtarea.title + '" agregada');
+  return { ok: true, id: stId };
+}
+
+function guardarComentario_(tareaId, comentario, usuario) {
+  if (!tareaId || !comentario || !comentario.text) return { ok: false, error: 'Datos incompletos' };
+  var ss = getSs_();
+  inicializarLibro_();
+  var hoja = ss.getSheetByName(HOJA_COMENTARIOS);
+  var cmId = comentario.id || ('cm_' + Date.now());
+  hoja.appendRow([cmId, tareaId, comentario.author || usuario, comentario.time || new Date().toISOString(), comentario.text]);
+  registrarBitacora_(usuario, 'AGREGAR_COMENTARIO', tareaId, 'Comentario publicado por ' + (comentario.author || usuario));
+  return { ok: true, id: cmId };
+}
+
 function listarTareas_() {
   var ss = getSs_();
   var hoja = ss.getSheetByName(HOJA_TAREAS);
   if (!hoja || hoja.getLastRow() <= 1) return [];
 
+  // Read subtasks map
+  var subMap = {};
+  var hojaSub = ss.getSheetByName(HOJA_SUBTAREAS);
+  if (hojaSub && hojaSub.getLastRow() > 1) {
+    var subRows = hojaSub.getRange(2, 1, hojaSub.getLastRow() - 1, 4).getValues();
+    subRows.forEach(function(sr) {
+      var tId = String(sr[1]);
+      if (!subMap[tId]) subMap[tId] = [];
+      subMap[tId].push({ id: String(sr[0]), title: String(sr[2]), completed: sr[3] === 'SI' });
+    });
+  }
+
+  // Read comments map
+  var comMap = {};
+  var hojaCom = ss.getSheetByName(HOJA_COMENTARIOS);
+  if (hojaCom && hojaCom.getLastRow() > 1) {
+    var comRows = hojaCom.getRange(2, 1, hojaCom.getLastRow() - 1, 5).getValues();
+    comRows.forEach(function(cr) {
+      var tId = String(cr[1]);
+      if (!comMap[tId]) comMap[tId] = [];
+      comMap[tId].push({ id: String(cr[0]), author: String(cr[2]), time: String(cr[3]), text: String(cr[4]) });
+    });
+  }
+
   var data = hoja.getRange(2, 1, hoja.getLastRow() - 1, 14).getValues();
   return data.map(function(r) {
+    var tId = String(r[0]);
+    var isComp = r[11] === 'SI';
     return {
-      id: r[0],
+      id: tId,
       title: r[1],
       projectId: r[2],
       projectName: r[3],
-      section: r[4],
+      project: r[3] || 'Minutas de reunión del área',
+      section: r[4] || 'Pendientes activos',
       assignee: r[5],
       dueDate: r[6] ? (r[6] instanceof Date ? Utilities.formatDate(r[6], 'America/Santiago', 'yyyy-MM-dd') : String(r[6])) : '',
-      status: r[7],
-      priority: r[8],
-      area: r[9],
-      desc: r[10],
-      completed: r[11] === 'SI'
+      due: r[6] ? (r[6] instanceof Date ? Utilities.formatDate(r[6], 'America/Santiago', 'yyyy-MM-dd') : String(r[6])) : '',
+      status: r[7] || (isComp ? 'Completado' : 'En progreso'),
+      priority: r[8] || 'Media',
+      area: r[9] || 'Procesos',
+      desc: r[10] || '',
+      completed: isComp,
+      subtasks: subMap[tId] || [],
+      comments: comMap[tId] || [],
+      commentsCount: (comMap[tId] || []).length
     };
   });
 }
@@ -443,6 +610,16 @@ function eliminarTarea(id) {
 function cambiarEstadoTarea(id, nuevoEstado, completada) {
   var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
   return cambiarEstadoTarea_(id, nuevoEstado, completada, usuario);
+}
+
+function guardarSubtarea(tareaId, subtarea) {
+  var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
+  return guardarSubtarea_(tareaId, subtarea, usuario);
+}
+
+function guardarComentario(tareaId, comentario) {
+  var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
+  return guardarComentario_(tareaId, comentario, usuario);
 }
 
 function listarTareas() {
