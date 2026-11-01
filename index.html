@@ -2972,6 +2972,599 @@ dialog.dialog-invite {
   }
 }
 
+/* ===== ASANA REAL PROJECT VIEW (SCREENSHOT 5 & MEDIA) ===== */
+.asana-project-top-header {
+  padding: 16px 24px 0 24px;
+  background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+.proj-breadcrumb {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}
+.proj-header-main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.proj-header-left {
+  display: flex;
+  flex-direction: column;
+}
+.proj-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.proj-sq-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.proj-sq-icon.pink {
+  background: #ff584a;
+  color: #fff;
+}
+.proj-sq-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.proj-h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+.btn-proj-chevron {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+.btn-proj-chevron:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.btn-star-proj {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.btn-star-proj:hover {
+  color: #f59e0b;
+}
+.btn-proj-status-config {
+  background: transparent;
+  border: 1px dashed var(--border-control);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.btn-proj-status-config:hover {
+  border-color: var(--text-primary);
+  color: #fff;
+}
+.proj-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.proj-avatar-stack {
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+}
+.avatar-stacked {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-canvas);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -6px;
+}
+.avatar-stacked:first-child {
+  margin-left: 0;
+}
+.btn-asana-share {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-asana-share:hover {
+  background: #1d4ed8;
+}
+.btn-asana-customize {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-control);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.btn-asana-customize:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Tabs */
+.subview-tabs-nav .s-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 4px 10px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 400;
+  transition: color 0.15s, border-color 0.15s;
+}
+.subview-tabs-nav .s-tab:hover {
+  color: var(--text-primary);
+}
+.subview-tabs-nav .s-tab.active {
+  color: #ffffff;
+  border-bottom-color: #2563eb;
+  font-weight: 600;
+}
+.s-tab-add {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.s-tab-add:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+
+/* Subtoolbar */
+.proj-subtoolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-top: 4px;
+  border-top: 1px solid var(--border-subtle);
+}
+.btn-subtoolbar-add-task {
+  background: #1e1f21;
+  border: 1px solid #444;
+  border-radius: 18px;
+  padding: 5px 14px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-subtoolbar-add-task:hover {
+  background: #2a2b2f;
+  border-color: #666;
+}
+.proj-subtoolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-subtoolbar-tool {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-subtoolbar-tool:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* LIST TABLE STYLES */
+.asana-table-lista {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+.asana-table-lista thead th {
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  border-bottom: 1px solid #2e2f34;
+  background: var(--bg-canvas);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.asana-table-lista tbody tr.section-hdr-row td {
+  padding: 18px 10px 8px 0px;
+  background: transparent;
+  border: none;
+}
+.section-hdr-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  user-select: none;
+}
+.btn-section-toggle {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+.btn-section-toggle:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.btn-section-toggle svg {
+  transition: transform 0.2s ease;
+}
+.btn-section-toggle.collapsed svg {
+  transform: rotate(-90deg);
+}
+.section-count {
+  font-weight: 400;
+  color: #6b7280;
+  font-size: 12.5px;
+}
+
+/* Task Rows */
+.asana-task-row {
+  border-bottom: 1px solid #232428;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+.asana-task-row:hover {
+  background: rgba(255,255,255,0.035);
+}
+.asana-task-row td {
+  padding: 7px 10px;
+  vertical-align: middle;
+}
+.col-check {
+  width: 34px;
+  text-align: center;
+}
+.task-check-circle {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid #6b7280;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s;
+}
+.task-check-circle:hover {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.15);
+}
+.task-check-circle.completed {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+.task-title-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.task-title-text {
+  font-weight: 500;
+  color: #ffffff;
+  transition: color 0.15s;
+}
+.task-title-text.completed {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+.task-badge {
+  font-size: 11px;
+  color: #9ca3af;
+  background: rgba(255,255,255,0.06);
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Assignee */
+.assignee-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.avatar-sm {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.avatar-sm.outline {
+  border: 1px dashed #6b7280;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 11px;
+}
+.assignee-name {
+  font-size: 12.5px;
+  color: #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+/* Due Date */
+.due-text {
+  font-size: 12.5px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+.due-text.overdue {
+  color: #ef4444 !important;
+  font-weight: 600;
+}
+
+/* PILLS */
+.pill-status, .pill-area, .pill-priority {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Status pills */
+.pill-status.en-progreso {
+  background: #eab308;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.pill-status.abierto {
+  background: #ef4444;
+  color: #ffffff;
+  font-weight: 600;
+}
+.pill-status.completado {
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Area pills */
+.pill-area.procesos {
+  background: #ea580c;
+  color: #ffffff;
+}
+.pill-area.pmo {
+  background: #ca8a04;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.pill-area.ingproc {
+  background: #c2410c;
+  color: #ffffff;
+}
+.pill-area.operaciones {
+  background: #2563eb;
+  color: #ffffff;
+}
+.pill-area.tecnologia {
+  background: #9333ea;
+  color: #ffffff;
+}
+
+/* Priority pills */
+.pill-priority.alta {
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+}
+.pill-priority.media {
+  background: #d97706;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.pill-priority.baja {
+  background: #0d9488;
+  color: #ffffff;
+}
+
+/* Inline Add Row */
+.inline-add-task-row td {
+  padding: 6px 10px 14px 10px;
+  background: transparent;
+  border-bottom: 1px dashed #232428;
+}
+.btn-inline-add-task {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 12.5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.btn-inline-add-task:hover {
+  color: #e5e7eb;
+  background: rgba(255,255,255,0.05);
+}
+.inline-input-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 600px;
+}
+.inline-task-input {
+  flex: 1;
+  background: #1e1f21;
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+}
+.btn-inline-save {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-inline-cancel {
+  background: transparent;
+  color: #9ca3af;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Drawer Enhancements */
+.drawer-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+.drawer-meta-select, .drawer-meta-input {
+  background: #252629;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+}
+.drawer-meta-select:focus, .drawer-meta-input:focus {
+  border-color: #2563eb;
+}
+.btn-drawer-action {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+}
+.btn-drawer-action:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+.drawer-subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background 0.12s;
+}
+.drawer-subtask-item:hover {
+  background: rgba(255,255,255,0.04);
+}
+.drawer-comment-card {
+  background: #252629;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #333438;
+}
+.drawer-comment-hdr {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
 </style>
 </head>
 <body>
@@ -3665,30 +4258,89 @@ dialog.dialog-invite {
       </div>
     </div>
 
-    <!-- VIEW 6: PROJECT DETAIL (100% REPLICA SCREENSHOT 5: MINUTAS DE REUNIÓN DEL ÁREA) -->
+    <!-- VIEW 6: PROJECT DETAIL (100% REPLICA SCREENSHOT 5 / ASANA REAL: MINUTAS DE REUNIÓN DEL ÁREA) -->
     <div class="view-panel" id="view-project-detail">
-      <div class="subview-header">
-        <div class="subview-title-row">
-          <div class="subview-title-left">
-            <span class="proj-sq-48 pink" id="projHeaderSq">
-              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="#ffffff"/></svg>
-            </span>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-              <h1 class="subview-h1" id="projHeaderTitle">Minutas de reunión del área</h1>
+      <div class="asana-project-top-header">
+        <div class="proj-header-main-row">
+          <div class="proj-header-left">
+            <div class="proj-breadcrumb">GGIEO</div>
+            <div class="proj-title-bar">
+              <span class="proj-sq-icon pink" id="projHeaderSq">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="#ffffff"/></svg>
+              </span>
+              <h1 class="proj-h1" id="projHeaderTitle">Minutas de reunión del área</h1>
+              <button type="button" class="btn-proj-chevron" id="btnProjChevron" title="Opciones del proyecto">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+              </button>
+              <button type="button" class="btn-star-proj" id="btnStarProject" title="Marcar como favorito">☆</button>
+              <button type="button" class="btn-proj-status-config" id="btnConfigStatus">
+                <span class="status-circle-dot">◌</span>
+                <span id="projStatusLabel">Configurar el estado</span>
+              </button>
             </div>
           </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <button type="button" class="btn-primary-asana" data-action="open-create-task" style="background:#ff584a; border-color:#ff584a; color:#fff; font-weight:500; font-size:13px; border-radius:6px; height:32px; padding:0 14px;">+ Agregar tarea</button>
+          
+          <div class="proj-header-right">
+            <!-- Avatar stack -->
+            <div class="proj-avatar-stack">
+              <div class="avatar-stacked" style="background:#3b82f6;" title="Marcelo Van Der Meer">MV</div>
+              <div class="avatar-stacked" style="background:#6b7280;" title="SEBASTIAN JESUS ROCA">SG</div>
+              <div class="avatar-stacked" style="background:#64748b;" title="Mario Trelles">MM</div>
+              <div class="avatar-stacked" style="background:#eab308; color:#1a1a1a;" title="Francisco Arancibia">FA</div>
+              <div class="avatar-stacked" style="background:#f43f5e;" title="GONZALO CASTILLO">GY</div>
+            </div>
+            <!-- Share button -->
+            <button type="button" class="btn-asana-share" id="btnShareProject">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" fill="currentColor"/></svg>
+              <span>Compartir</span>
+            </button>
+            <!-- Personalizar button -->
+            <button type="button" class="btn-asana-customize" id="btnCustomizeProject">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg>
+              <span>Personalizar</span>
+            </button>
           </div>
         </div>
+
+        <!-- Project subtabs -->
         <div class="subview-tabs-nav">
-          <button type="button" class="s-tab active" data-proj-tab="resumen">Resumen</button>
-          <button type="button" class="s-tab" data-proj-tab="lista">Lista</button>
+          <button type="button" class="s-tab" data-proj-tab="resumen">Resumen</button>
+          <button type="button" class="s-tab active" data-proj-tab="lista">Lista</button>
           <button type="button" class="s-tab" data-proj-tab="tablero">Tablero</button>
           <button type="button" class="s-tab" data-proj-tab="cronograma">Cronograma</button>
+          <button type="button" class="s-tab" data-proj-tab="panel">Panel</button>
           <button type="button" class="s-tab" data-proj-tab="calendario">Calendario</button>
           <button type="button" class="s-tab" data-proj-tab="mensajes">Mensajes</button>
           <button type="button" class="s-tab" data-proj-tab="archivos">Archivos</button>
+          <button type="button" class="s-tab-add" id="btnAddProjTab" title="Agregar vista">+</button>
+        </div>
+
+        <!-- Subtoolbar -->
+        <div class="proj-subtoolbar">
+          <div class="proj-subtoolbar-left">
+            <button type="button" class="btn-subtoolbar-add-task" id="btnTopAddTask">
+              <span>+ Agregar tarea</span>
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="proj-subtoolbar-right">
+            <button type="button" class="btn-subtoolbar-tool" id="btnProjFilter">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" fill="currentColor"/></svg>
+              <span>Filtrar</span>
+            </button>
+            <button type="button" class="btn-subtoolbar-tool" id="btnProjSort">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" fill="currentColor"/></svg>
+              <span>Ordenar</span>
+            </button>
+            <button type="button" class="btn-subtoolbar-tool" id="btnProjGroup">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z" fill="currentColor"/></svg>
+              <span>Agrupar</span>
+            </button>
+            <button type="button" class="btn-subtoolbar-tool" id="btnProjOptions">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></svg>
+              <span>Opciones</span>
+            </button>
+          </div>
         </div>
       </div>
       <div class="subview-body" id="projectTabContent"></div>
@@ -3999,74 +4651,202 @@ dialog.dialog-invite {
       <svg viewBox="0 0 32 32"><path d="M12.9,22.6c-0.3,0-0.5-0.1-0.7-0.3l-3.9-3.9C8,18,8,17.4,8.3,17s1-0.4,1.4,0l3.1,3.1l8.6-8.6c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-9.4,9.4C13.4,22.5,13.2,22.6,12.9,22.6z"></path></svg>
       <span id="drawerCompleteLabel">Marcar como finalizada</span>
     </button>
-    <button type="button" class="btn-burger" id="btnCloseDrawer" aria-label="Cerrar detalles">✕</button>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <button type="button" class="btn-drawer-action" id="btnDrawerDeleteTask" title="Eliminar tarea">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor"/></svg>
+      </button>
+      <button type="button" class="btn-burger" id="btnCloseDrawer" aria-label="Cerrar detalles">✕</button>
+    </div>
   </div>
   <div class="drawer-body">
-    <input type="text" class="drawer-task-title" id="drawerTaskTitle" value="">
-    <div class="drawer-meta-row">
-      <span class="drawer-meta-label">Responsable</span>
-      <span class="drawer-meta-val" id="drawerAssignee">SEBASTIAN</span>
+    <!-- Editable Task Title -->
+    <input type="text" class="drawer-task-title" id="drawerTaskTitle" placeholder="Nombre de la tarea...">
+
+    <!-- Meta Fields Grid -->
+    <div class="drawer-fields-grid">
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Responsable</span>
+        <select class="drawer-meta-select" id="drawerAssigneeSelect">
+          <option value="SEBASTIAN JESUS ROCA">SEBASTIAN JESUS ROCA (SG)</option>
+          <option value="GONZALO CASTILLO">GONZALO CASTILLO (GY)</option>
+          <option value="Francisco Arancibia">Francisco Arancibia (FA)</option>
+          <option value="Marcelo Van Der Meer">Marcelo Van Der Meer (MV)</option>
+          <option value="Equipo BIM">Equipo BIM</option>
+          <option value="Equipo Lean">Equipo Lean</option>
+          <option value="Sin asignar">Sin asignar</option>
+        </select>
+      </div>
+
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Fecha de entrega</span>
+        <input type="text" class="drawer-meta-input" id="drawerDueInput" placeholder="Ej. 2 oct, 5 oct...">
+      </div>
+
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Proyecto</span>
+        <select class="drawer-meta-select" id="drawerProjectSelect"></select>
+      </div>
+
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Sección</span>
+        <select class="drawer-meta-select" id="drawerSectionSelect">
+          <option value="Pendientes activos">Pendientes activos</option>
+          <option value="En revisión">En revisión</option>
+          <option value="Completados">Completados</option>
+        </select>
+      </div>
+
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Estado</span>
+        <select class="drawer-meta-select" id="drawerStatusSelect">
+          <option value="En progreso">En progreso</option>
+          <option value="Abierto">Abierto</option>
+          <option value="Completado">Completado</option>
+        </select>
+      </div>
+
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Responsable (Área)</span>
+        <select class="drawer-meta-select" id="drawerAreaSelect">
+          <option value="Procesos">Procesos</option>
+          <option value="PMO">PMO</option>
+          <option value="Ing&Proc">Ing&Proc</option>
+          <option value="Operaciones">Operaciones</option>
+          <option value="Tecnología">Tecnología</option>
+        </select>
+      </div>
+
+      <div class="drawer-meta-row">
+        <span class="drawer-meta-label">Prioridad</span>
+        <select class="drawer-meta-select" id="drawerPrioritySelect">
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+      </div>
     </div>
-    <div class="drawer-meta-row">
-      <span class="drawer-meta-label">Fecha de entrega</span>
-      <span class="drawer-meta-val" id="drawerDue">Lunes</span>
-    </div>
-    <div class="drawer-meta-row">
-      <span class="drawer-meta-label">Proyecto</span>
-      <span class="drawer-meta-val" id="drawerProject">Calendario de recursos</span>
-    </div>
-    <div class="drawer-meta-row">
-      <span class="drawer-meta-label">Prioridad</span>
-      <span class="drawer-meta-val" id="drawerPriority">Alta</span>
-    </div>
-    <label class="drawer-meta-label" style="display:block; margin-top: 14px;">Descripción</label>
-    <textarea class="drawer-desc" id="drawerDesc" placeholder="¿De qué trata esta tarea? Añade notas o especificaciones técnicas..."></textarea>
+
+    <!-- Description -->
+    <label class="drawer-meta-label" style="display:block; margin-top: 18px; margin-bottom: 6px;">Descripción</label>
+    <textarea class="drawer-desc" id="drawerDesc" placeholder="¿De qué trata esta tarea? Especificaciones técnicas, acuerdos de reunión..."></textarea>
 
     <!-- Subtasks Section -->
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 24px;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
         <span class="drawer-meta-label">Subtareas</span>
-        <button type="button" class="btn-add-widgets" id="btnAddSubtask" style="height:24px; font-size:11.5px;">+ Subtarea</button>
       </div>
-      <div id="drawerSubtasksList" style="display:flex; flex-direction:column; gap:6px;"></div>
+      <div class="drawer-subtasks-list" id="drawerSubtasksList"></div>
+      <div style="display:flex; gap:8px; margin-top:8px;">
+        <input type="text" class="drawer-comment-input" id="drawerSubtaskInput" placeholder="Agregar una subtarea..." style="flex:1; background:#252629; border:1px solid #3e3e42; border-radius:6px; padding:6px 10px; color:#fff; font-size:12.5px;">
+        <button type="button" class="btn-primary-asana" id="btnSubmitDrawerSubtask" style="font-size:12px; padding:0 10px; height:30px;">+ Agregar</button>
+      </div>
+    </div>
+
+    <!-- Comments & Activity Feed -->
+    <div style="margin-top: 28px; border-top: 1px solid var(--border-control); padding-top: 18px;">
+      <span class="drawer-meta-label" style="display:block; margin-bottom: 12px;">Actividad y Comentarios</span>
+      <div class="drawer-comments-list" id="drawerCommentsList"></div>
+      
+      <div class="drawer-add-comment-wrap" style="margin-top: 14px; display:flex; gap:8px;">
+        <input type="text" class="drawer-comment-input" id="drawerCommentInput" placeholder="Escribe un comentario..." style="flex:1; background:#252629; border:1px solid #3e3e42; border-radius:6px; padding:8px 12px; color:#fff; font-size:13px;">
+        <button type="button" class="btn-primary-asana" id="btnSubmitDrawerComment" style="font-size:12px; padding:0 12px; height:34px;">Comentar</button>
+      </div>
     </div>
   </div>
 </aside>
 
 <!-- MODAL CREAR TAREA (<dialog closedby="any">) -->
-<dialog id="dialogCreateTask" closedby="any" aria-labelledby="dlgCreateTitle">
+<dialog id="dialogCreateTask" closedby="any" aria-labelledby="dlgCreateTitle" class="dialog-task-create" style="width: 520px; max-width: 95vw; background: #222327; color: #fff; border: 1px solid #3e3e42; border-radius: 8px; padding: 20px;">
   <form id="formCreateTask" method="dialog">
-    <div class="dlg-hdr">
-      <h3 id="dlgCreateTitle">Crear tarea</h3>
-      <button type="button" class="btn-burger" id="btnCloseDialog">✕</button>
+    <div class="dlg-hdr" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; border-bottom:1px solid #333438; padding-bottom:12px;">
+      <h3 id="dlgCreateTitle" style="font-size:16px; font-weight:600; color:#fff; margin:0;">Crear y entregar tarea</h3>
+      <button type="button" class="btn-burger" id="btnCloseDialog" aria-label="Cerrar modal">✕</button>
     </div>
-    <div class="dlg-field">
-      <label for="taskTitleInput">Nombre de la tarea</label>
-      <input type="text" id="taskTitleInput" required placeholder="Ej. Revisión de topografía obra norte">
+    
+    <div class="dlg-field" style="margin-bottom:14px;">
+      <label for="taskTitleInput" style="display:block; font-size:12.5px; color:#a0a0a0; margin-bottom:6px; font-weight:500;">Nombre de la tarea *</label>
+      <input type="text" id="taskTitleInput" required placeholder="Ej. Entrega de informe técnico de montaje" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 12px; color:#fff; font-size:13.5px; outline:none;">
     </div>
-    <div class="dlg-field">
-      <label for="taskProjectSelect">Proyecto</label>
-      <select id="taskProjectSelect">
-        <option value="Calendario de recursos">Calendario de recursos</option>
-        <option value="Procesos">Procesos</option>
-        <option value="Minutas de reunión del área">Minutas de reunión del área</option>
-        <option value="GGIEO">GGIEO</option>
-      </select>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:14px;">
+      <div class="dlg-field">
+        <label for="taskProjectSelect" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Proyecto</label>
+        <select id="taskProjectSelect" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+          <option value="Minutas de reunión del área">Minutas de reunión del área</option>
+          <option value="Procesos">Procesos</option>
+          <option value="Calendario de recursos">Calendario de recursos</option>
+          <option value="GGIEO">GGIEO</option>
+        </select>
+      </div>
+
+      <div class="dlg-field">
+        <label for="taskSectionSelect" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Sección</label>
+        <select id="taskSectionSelect" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+          <option value="Pendientes activos">Pendientes activos</option>
+          <option value="En revisión">En revisión</option>
+          <option value="Completados">Completados</option>
+        </select>
+      </div>
     </div>
-    <div class="dlg-field">
-      <label for="taskDueInput">Fecha de entrega</label>
-      <input type="text" id="taskDueInput" value="Lunes">
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:14px;">
+      <div class="dlg-field">
+        <label for="taskAssigneeSelect" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Responsable</label>
+        <select id="taskAssigneeSelect" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+          <option value="SEBASTIAN JESUS ROCA">SEBASTIAN JESUS ROCA (SG)</option>
+          <option value="GONZALO CASTILLO">GONZALO CASTILLO (GY)</option>
+          <option value="Francisco Arancibia">Francisco Arancibia (FA)</option>
+          <option value="Marcelo Van Der Meer">Marcelo Van Der Meer (MV)</option>
+          <option value="Equipo BIM">Equipo BIM</option>
+          <option value="Equipo Lean">Equipo Lean</option>
+        </select>
+      </div>
+
+      <div class="dlg-field">
+        <label for="taskDueInput" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Fecha de entrega</label>
+        <input type="text" id="taskDueInput" value="2 oct" placeholder="Ej. 2 oct, 5 oct, Mañana..." style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+      </div>
     </div>
-    <div class="dlg-field">
-      <label for="taskTabSelect">Sección</label>
-      <select id="taskTabSelect">
-        <option value="proximas">Próximas</option>
-        <option value="retraso">Con retraso</option>
-      </select>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-bottom:14px;">
+      <div class="dlg-field">
+        <label for="taskStatusSelect" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Estado</label>
+        <select id="taskStatusSelect" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+          <option value="En progreso">En progreso</option>
+          <option value="Abierto">Abierto</option>
+          <option value="Completado">Completado</option>
+        </select>
+      </div>
+
+      <div class="dlg-field">
+        <label for="taskAreaSelect" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Área / Dept</label>
+        <select id="taskAreaSelect" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+          <option value="Procesos">Procesos</option>
+          <option value="PMO">PMO</option>
+          <option value="Ing&Proc">Ing&Proc</option>
+          <option value="Operaciones">Operaciones</option>
+          <option value="Tecnología">Tecnología</option>
+        </select>
+      </div>
+
+      <div class="dlg-field">
+        <label for="taskPrioritySelect" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Prioridad</label>
+        <select id="taskPrioritySelect" style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 10px; color:#fff; font-size:13px; outline:none;">
+          <option value="Alta">Alta</option>
+          <option value="Media" selected>Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+      </div>
     </div>
-    <div class="dlg-actions">
-      <button type="button" class="btn-add-widgets" id="btnCancelDialog">Cancelar</button>
-      <button type="submit" class="btn-primary-asana">Crear tarea</button>
+
+    <div class="dlg-field" style="margin-bottom:18px;">
+      <label for="taskDescInput" style="display:block; font-size:12px; color:#a0a0a0; margin-bottom:6px;">Descripción y notas de entrega</label>
+      <textarea id="taskDescInput" rows="3" placeholder="Detalles de la tarea, entregables o referencias técnicas..." style="width:100%; background:#1c1d20; border:1px solid #3e3e42; border-radius:6px; padding:8px 12px; color:#fff; font-size:13px; outline:none; resize:none;"></textarea>
+    </div>
+
+    <div class="dlg-actions" style="display:flex; justify-content:flex-end; gap:10px;">
+      <button type="button" class="btn-add-widgets" id="btnCancelDialog" style="padding:8px 16px;">Cancelar</button>
+      <button type="submit" class="btn-primary-asana" id="btnSubmitCreateTask" style="background:#2563eb; border-color:#2563eb; padding:8px 18px; font-weight:600;">Crear y Entregar Tarea</button>
     </div>
   </form>
 </dialog>
@@ -4706,40 +5486,228 @@ dialog.dialog-invite {
 
 <script>
 (function() {
-  const STORAGE_KEY = 'asana_salfa_tasks_v9';
+  const STORAGE_KEY = 'asana_salfa_tasks_v10';
   const PROJ_STORAGE_KEY = 'asana_salfa_projects_v8';
 
-    const INITIAL_TASKS = [
-    // Minutas de reunión del área (Exact Screenshot 5: 5 tasks matching real portal)
-    { id: 't_m1', title: 'Verificación de Estructuras Salfa Obra Central', project: 'Minutas de reunión del área', color: 'pink', due: 'Jueves', tab: 'proximas', assignee: 'SEBASTIAN', priority: 'Media', status: 'Por hacer', desc: 'Verificación de planos estructurales y cálculo de uniones en obra central.' },
-    { id: 't_m2', title: 'Verificación de Estructuras Salfa Obra Central', project: 'Minutas de reunión del área', color: 'pink', due: 'Jueves', tab: 'proximas', assignee: 'SEBASTIAN', priority: 'Media', status: 'Por hacer', desc: 'Validación de cubicaciones y avance de montaje de estructuras metálicas.' },
-    { id: 't6', title: 'Revisar suscripción de todos en el calendario', project: 'Minutas de reunión del área', color: 'pink', due: '5 oct', tab: 'retraso', overdue: true, assignee: 'SEBASTIAN', priority: 'Baja', status: 'Por hacer', desc: 'Verificar accesos de usuarios al Calendario de Recursos compartido.' },
-    { id: 't7', title: 'Entrega de estructura de Marco de Gobernanza BIM', project: 'Minutas de reunión del área', color: 'pink', due: '2 oct', tab: 'retraso', overdue: true, assignee: 'Equipo BIM', priority: 'Alta', status: 'En curso', desc: 'Estándar y matriz de roles BIM corporativa Salfa Montajes.' },
-    { id: 't8', title: 'Entrega de estructura de Marco de Gobernanza Lean', project: 'Minutas de reunión del área', color: 'pink', due: '2 oct', tab: 'retraso', overdue: true, assignee: 'Equipo Lean', priority: 'Alta', status: 'Por hacer', desc: 'Entrega final de la metodología Last Planner y compromisos de área.' },
+  const INITIAL_TASKS = [
+    // Minutas de reunión del área (100% Exact Screenshot 5 / media_1793503620137_d9a6758e.png)
+    {
+      id: 't_m1',
+      title: 'Entrega de estructura de Marco de Gobernanza BIM',
+      project: 'Minutas de reunión del área',
+      color: 'pink',
+      section: 'Pendientes activos',
+      assignee: 'SEBASTIAN JESUS ROCA',
+      assigneeShort: 'SEBASTIAN J...',
+      assigneeAvatar: 'SG',
+      assigneeAvatarBg: '#6b7280',
+      due: '2 oct',
+      overdue: false,
+      status: 'En progreso',
+      area: 'Procesos',
+      priority: 'Alta',
+      completed: true,
+      likes: 1,
+      commentsCount: 1,
+      desc: 'Entrega de estructura y directrices del Marco de Gobernanza BIM corporativo para Salfa Montajes.',
+      subtasks: [
+        { id: 'st_1', title: 'Definir estándares de modelado Revit', completed: true },
+        { id: 'st_2', title: 'Validar matriz de roles y responsabilidades', completed: true }
+      ],
+      comments: [
+        { id: 'cm_1', author: 'SEBASTIAN JESUS ROCA', time: '2 oct', text: 'Documento entregado y validado con equipo BIM.' }
+      ]
+    },
+    {
+      id: 't_m2',
+      title: 'Entrega de estructura de Marco de Gobernanza Lean',
+      project: 'Minutas de reunión del área',
+      color: 'pink',
+      section: 'Pendientes activos',
+      assignee: 'SEBASTIAN JESUS ROCA',
+      assigneeShort: 'SEBASTIAN J...',
+      assigneeAvatar: 'SG',
+      assigneeAvatarBg: '#6b7280',
+      due: '2 oct',
+      overdue: false,
+      status: 'Abierto',
+      area: 'Procesos',
+      priority: 'Alta',
+      completed: true,
+      commentsCount: 2,
+      desc: 'Metodología Last Planner System y compromisos del área de P&D.',
+      subtasks: [
+        { id: 'st_3', title: 'Reunión con jefes de faena', completed: true }
+      ],
+      comments: [
+        { id: 'cm_2', author: 'Marcelo Van Der Meer', time: '1 oct', text: 'Revisado en comité de obra.' },
+        { id: 'cm_3', author: 'SEBASTIAN JESUS ROCA', time: '2 oct', text: 'Compromisos integrados a la minuta.' }
+      ]
+    },
+    {
+      id: 't_m3',
+      title: 'Preparación de presentación para proyecto Sierra Gorda',
+      project: 'Minutas de reunión del área',
+      color: 'pink',
+      section: 'Pendientes activos',
+      assignee: 'GONZALO CASTILLO',
+      assigneeShort: 'GONZALO C...',
+      assigneeAvatar: 'GY',
+      assigneeAvatarBg: '#f43f5e',
+      due: '29 sep',
+      overdue: true,
+      status: 'En progreso',
+      area: 'PMO',
+      priority: 'Alta',
+      completed: false,
+      desc: 'Diapositivas y métricas de avance contractual para mandante Sierra Gorda.',
+      subtasks: [
+        { id: 'st_4', title: 'Recopilar curvas S de avance físico', completed: true },
+        { id: 'st_5', title: 'Preparar análisis de riesgos de montaje', completed: false }
+      ],
+      comments: []
+    },
+    {
+      id: 't_m4',
+      title: 'Revisión de documentos de Ingeniería',
+      project: 'Minutas de reunión del área',
+      color: 'pink',
+      section: 'En revisión',
+      assignee: 'Francisco Arancibia',
+      assigneeShort: 'Francisco Ar...',
+      assigneeAvatar: 'FA',
+      assigneeAvatarBg: '#eab308',
+      due: '5 oct',
+      overdue: true,
+      status: 'En progreso',
+      area: 'Ing&Proc',
+      priority: 'Media',
+      completed: false,
+      desc: 'Revisión de memorias de cálculo y especificaciones técnicas de fundaciones.',
+      subtasks: [
+        { id: 'st_6', title: 'Revisar planos civiles rev. B', completed: true },
+        { id: 'st_7', title: 'Validar firmas de especialistas', completed: false }
+      ],
+      comments: []
+    },
+    {
+      id: 't_m5',
+      title: 'Minuta reunión 3 de octubre',
+      project: 'Minutas de reunión del área',
+      color: 'pink',
+      section: 'Completados',
+      assignee: '',
+      assigneeShort: '',
+      assigneeAvatar: '',
+      due: '3 – 4 oct',
+      overdue: false,
+      status: 'Completado',
+      area: 'Operaciones',
+      priority: 'Media',
+      completed: true,
+      desc: 'Acuerdos semanales de coordinación de faena y logística de suministros.',
+      subtasks: [],
+      comments: []
+    },
+    {
+      id: 't_m6',
+      title: 'Cierre de proyecto de integración de sistemas',
+      project: 'Minutas de reunión del área',
+      color: 'pink',
+      section: 'Completados',
+      assignee: '',
+      assigneeShort: '',
+      assigneeAvatar: '',
+      due: '12 – 19 oct',
+      overdue: false,
+      status: 'Completado',
+      area: 'Tecnología',
+      priority: 'Media',
+      completed: true,
+      desc: 'Firma de acta de aceptación final e integración con sistemas ERP corporativos.',
+      subtasks: [],
+      comments: []
+    },
 
     // Additional Workspace tasks (Home / Bandeja)
-    { id: 't4', title: 'Definir estructura o árbol del sistema de gestión integrado', project: 'Procesos', color: 'orange', due: '6 oct', tab: 'retraso', overdue: true, assignee: 'SEBASTIAN', priority: 'Alta', status: 'Por hacer', desc: 'Mapeo de macroprocesos según norma ISO.' },
-    { id: 't5', title: 'Política de identidad corporativa', project: 'Procesos', color: 'orange', due: '29 sep – 6 oct', tab: 'retraso', overdue: true, assignee: 'SEBASTIAN', priority: 'Media', status: 'Por hacer', desc: 'Manual de marca Salfa Montajes y formatos.' },
-    { id: 't_c1', title: 'Carlos Méndez — Topógrafo de campo', project: 'Calendario de recursos', color: 'orange', due: 'Lunes', tab: 'proximas', assignee: 'Carlos Méndez', priority: 'Alta', status: 'En curso', desc: 'Topografía de obra norte.' },
-    { id: 't_c2', title: 'Excavadora CAT 320 — Obra norte', project: 'Calendario de recursos', color: 'orange', due: 'Miércoles', tab: 'proximas', assignee: 'Maquinaria', priority: 'Media', status: 'Por hacer', desc: 'Mantención preventiva.' },
-    { id: 't_g1', title: 'Marcos de Gobernanza', project: 'Procesos', color: 'orange', due: '6 oct', tab: 'proximas', assignee: 'SEBASTIAN', priority: 'Alta', status: 'Por hacer', desc: 'Gobernanza corporativa.' }
+    { id: 't4', title: 'Definir estructura o árbol del sistema de gestión integrado', project: 'Procesos', section: 'Pendientes activos', color: 'orange', due: '6 oct', tab: 'retraso', overdue: true, assignee: 'SEBASTIAN JESUS ROCA', priority: 'Alta', status: 'Abierto', area: 'Procesos', desc: 'Mapeo de macroprocesos según norma ISO.' },
+    { id: 't5', title: 'Política de identidad corporativa', project: 'Procesos', section: 'Pendientes activos', color: 'orange', due: '29 sep – 6 oct', tab: 'retraso', overdue: true, assignee: 'SEBASTIAN JESUS ROCA', priority: 'Media', status: 'En progreso', area: 'Procesos', desc: 'Manual de marca Salfa Montajes y formatos.' },
+    { id: 't_c1', title: 'Carlos Méndez — Topógrafo de campo', project: 'Calendario de recursos', section: 'Pendientes activos', color: 'orange', due: 'Lunes', tab: 'proximas', assignee: 'Carlos Méndez', priority: 'Alta', status: 'En progreso', area: 'Operaciones', desc: 'Topografía de obra norte.' },
+    { id: 't_c2', title: 'Excavadora CAT 320 — Obra norte', project: 'Calendario de recursos', section: 'Pendientes activos', color: 'orange', due: 'Miércoles', tab: 'proximas', assignee: 'Maquinaria', priority: 'Media', status: 'Abierto', area: 'Operaciones', desc: 'Mantención preventiva.' },
+    { id: 't_g1', title: 'Marcos de Gobernanza', project: 'Procesos', section: 'Pendientes activos', color: 'orange', due: '6 oct', tab: 'proximas', assignee: 'SEBASTIAN JESUS ROCA', priority: 'Alta', status: 'En progreso', area: 'Procesos', desc: 'Gobernanza corporativa.' }
   ];
 
   const INITIAL_PROJECTS = [
     { name: 'Montaje Línea de Transmis...', color: 'orange', icon: 'power', tasksCount: 4 },
-    { name: 'Minutas de reunión del área', color: 'pink', icon: 'book', tasksCount: 5 },
+    { name: 'Minutas de reunión del área', color: 'pink', icon: 'book', tasksCount: 6 },
     { name: 'Calendario de recursos', color: 'orange', icon: 'cal', tasksCount: 5, sub: '5 tareas para entregar pronto' },
     { name: 'Procesos', color: 'orange', icon: 'list', tasksCount: 3, badge: 'Nuevo' },
     { name: 'GGIEO', color: 'folder', icon: 'folder', tasksCount: 2 }
   ];
 
+  // =========================================================================
+  // BACKEND INTEGRATION ADAPTER (APPS SCRIPT / LOCALSTORAGE / REST)
+  // =========================================================================
+  const BackendService = {
+    isGAS: typeof google !== 'undefined' && google.script && google.script.run,
+
+    saveTask: function(task) {
+      if (this.isGAS) {
+        return new Promise((resolve) => {
+          google.script.run
+            .withSuccessHandler(res => resolve(res))
+            .withFailureHandler(err => {
+              console.warn('Backend GAS error:', err);
+              resolve({ ok: false, error: err });
+            })
+            .guardarTarea(task);
+        });
+      } else {
+        console.log('BackendService: Tarea sincronizada localmente y despachada a Codigo.gs:', task.title);
+        return Promise.resolve({ ok: true, id: task.id });
+      }
+    },
+
+    deleteTask: function(taskId) {
+      if (this.isGAS) {
+        return new Promise((resolve) => {
+          google.script.run
+            .withSuccessHandler(res => resolve(res))
+            .withFailureHandler(err => resolve({ ok: false, error: err }))
+            .eliminarTarea(taskId);
+        });
+      } else {
+        console.log('BackendService: Tarea eliminada del backend:', taskId);
+        return Promise.resolve({ ok: true, id: taskId });
+      }
+    },
+
+    syncAll: function(tasks, projects) {
+      if (this.isGAS) {
+        return new Promise((resolve) => {
+          google.script.run
+            .withSuccessHandler(res => resolve(res))
+            .withFailureHandler(err => resolve({ ok: false, error: err }))
+            .sincronizarDatos({ tasks, projects });
+        });
+      } else {
+        return Promise.resolve({ ok: true, timestamp: new Date().toISOString() });
+      }
+    }
+  };
+
   let currentRailMode = 'trabajo';
   let activeTab = 'proximas';
-  let currentOpenProject = null;
-  let activeProjectSubTab = 'resumen';
+  let currentOpenProject = 'Minutas de reunión del área';
+  let activeProjectSubTab = 'lista';
   let activeTaskId = null;
   let toastTimer = null;
   let isAway = false;
+  let currentFilter = 'all';
+  let currentSort = 'default';
+
+  // Section collapsed state tracking
+  const collapsedSections = new Set();
 
   // Dialog Elements
   const dlgTask = document.getElementById('dialogCreateTask');
@@ -4771,21 +5739,56 @@ dialog.dialog-invite {
     toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
   }
 
-    function getPriorityPill(priority) {
-    if (priority === 'Alta') {
-      return '<span class="priority-badge alta" style="background:#451a1a; color:#f87171; padding:3px 10px; border-radius:12px; font-size:11.5px; font-weight:500;">Alta</span>';
-    } else if (priority === 'Media') {
-      return '<span class="priority-badge media" style="background:#14532d; color:#4ade80; padding:3px 10px; border-radius:12px; font-size:11.5px; font-weight:500;">Media</span>';
-    } else if (priority === 'Baja') {
-      return '<span class="priority-badge baja" style="background:#134e4a; color:#2dd4bf; padding:3px 10px; border-radius:12px; font-size:11.5px; font-weight:500;">Baja</span>';
+  // PILL RENDERERS
+  function renderStatusPill(status) {
+    const s = status || 'En progreso';
+    if (s === 'En progreso' || s === 'En progr...') {
+      return '<span class="pill-status en-progreso">En progr...</span>';
+    } else if (s === 'Abierto') {
+      return '<span class="pill-status abierto">Abierto</span>';
+    } else if (s === 'Completado' || s === 'Finalizado' || s === 'Complet...') {
+      return '<span class="pill-status completado">Complet...</span>';
     }
-    return '<span style="color:#9ca3af; font-size:12px;">-</span>';
+    return `<span class="pill-status en-progreso">${s}</span>`;
+  }
+
+  function renderAreaPill(area) {
+    const a = area || 'Procesos';
+    const aLower = a.toLowerCase();
+    if (aLower.includes('proceso')) {
+      return '<span class="pill-area procesos">Procesos</span>';
+    } else if (aLower.includes('pmo')) {
+      return '<span class="pill-area pmo">PMO</span>';
+    } else if (aLower.includes('ing') || aLower.includes('proc')) {
+      return '<span class="pill-area ingproc">Ing&Proc</span>';
+    } else if (aLower.includes('opera')) {
+      return '<span class="pill-area operaciones">Operaci...</span>';
+    } else if (aLower.includes('tecno')) {
+      return '<span class="pill-area tecnologia">Tecnología</span>';
+    }
+    return `<span class="pill-area procesos">${area}</span>`;
+  }
+
+  function renderPriorityPill(priority) {
+    const p = priority || 'Media';
+    if (p === 'Alta') {
+      return '<span class="pill-priority alta">Alta</span>';
+    } else if (p === 'Media') {
+      return '<span class="pill-priority media">Media</span>';
+    } else if (p === 'Baja') {
+      return '<span class="pill-priority baja">Baja</span>';
+    }
+    return `<span class="pill-priority media">${p}</span>`;
   }
 
   function loadTasks() {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
-      return data ? JSON.parse(data) : INITIAL_TASKS;
+      if (data) {
+        const parsed = JSON.parse(data);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+      return INITIAL_TASKS;
     } catch(e) { return INITIAL_TASKS; }
   }
 
@@ -4884,12 +5887,12 @@ dialog.dialog-invite {
     const all = loadTasks();
 
     const searchVal = (document.getElementById('globalSearchInput') ? document.getElementById('globalSearchInput').value : '').toLowerCase().trim();
-    let filtered = all.filter(t => t.tab === activeTab);
+    let filtered = all.filter(t => t.tab === activeTab || (!t.tab && activeTab === 'proximas'));
     if (searchVal) {
-      filtered = filtered.filter(t => t.title.toLowerCase().includes(searchVal) || t.project.toLowerCase().includes(searchVal));
+      filtered = filtered.filter(t => t.title.toLowerCase().includes(searchVal) || (t.project && t.project.toLowerCase().includes(searchVal)));
     }
 
-    const overdueCount = all.filter(t => t.tab === 'retraso').length;
+    const overdueCount = all.filter(t => t.overdue && !t.completed).length;
     const tabRetrasoLabel = document.getElementById('tabRetrasoLabel');
     if (tabRetrasoLabel) tabRetrasoLabel.textContent = `Con retraso (${overdueCount})`;
 
@@ -4901,19 +5904,19 @@ dialog.dialog-invite {
     container.innerHTML = filtered.map(t => `
       <div class="task-item" data-task-row-id="${t.id}">
         <div class="task-left">
-          <button type="button" class="task-check-circle ${t.tab === 'finalizadas' ? 'completed' : ''}" data-complete-id="${t.id}" aria-label="Completar tarea">
-            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path></svg>
+          <button type="button" class="task-check-circle ${t.completed ? 'completed' : ''}" data-complete-id="${t.id}" aria-label="Completar tarea">
+            ${t.completed ? '<svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#fff"></path></svg>' : ''}
           </button>
-          <span class="task-title-text ${t.tab === 'finalizadas' ? 'line-through' : ''}">${t.title}</span>
+          <span class="task-title-text ${t.completed ? 'completed' : ''}">${t.title}</span>
         </div>
         <div class="task-right">
           ${t.project ? `
-            <span class="pill-project ${t.color}">
+            <span class="pill-project ${t.color || 'pink'}">
               <span class="pill-dot"></span>
               ${t.project}
             </span>
           ` : ''}
-          ${t.due ? `<span class="task-due-date ${t.overdue && t.tab !== 'finalizadas' ? 'overdue' : ''}">${t.due}</span>` : ''}
+          ${t.due ? `<span class="task-due-date ${t.overdue && !t.completed ? 'overdue' : ''}">${t.due}</span>` : ''}
         </div>
       </div>
     `).join('');
@@ -4930,94 +5933,182 @@ dialog.dialog-invite {
     tbody.innerHTML = all.map(t => `
       <tr data-task-row-id="${t.id}">
         <td>
-          <button type="button" class="task-check-circle ${t.tab === 'finalizadas' ? 'completed' : ''}" data-complete-id="${t.id}">
-            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path></svg>
+          <button type="button" class="task-check-circle ${t.completed ? 'completed' : ''}" data-complete-id="${t.id}">
+            ${t.completed ? '<svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#fff"></path></svg>' : ''}
           </button>
         </td>
-        <td style="font-weight: 500; color: var(--text-primary);">${t.title}</td>
+        <td style="font-weight: 500; color: var(--text-primary);">
+          <span class="${t.completed ? 'line-through' : ''}">${t.title}</span>
+        </td>
         <td>
-          <span class="pill-project ${t.color}">
+          <span class="pill-project ${t.color || 'pink'}">
             <span class="pill-dot"></span>
             ${t.project}
           </span>
         </td>
-        <td style="${t.overdue && t.tab !== 'finalizadas' ? 'color:#ff7369;' : ''}">${t.due || '-'}</td>
-        <td>${getPriorityPill(t.priority)}</td>
-        <td>${t.status || 'En progreso'}</td>
+        <td style="${t.overdue && !t.completed ? 'color:#ff7369;' : ''}">${t.due || '-'}</td>
+        <td>${renderPriorityPill(t.priority)}</td>
+        <td>${renderStatusPill(t.status)}</td>
       </tr>
     `).join('');
   }
 
-      function renderProjTaskRow(t) {
-    const isComp = t.tab === 'finalizadas' || t.status === 'Completado';
-    return `
-      <tr data-task-row-id="${t.id}" style="cursor:pointer; border-bottom:1px solid #28292c;">
-        <td style="width: 36px; text-align:center; padding: 10px 8px;">
-          <button type="button" class="task-check-circle ${isComp ? 'completed' : ''}" data-complete-id="${t.id}" aria-label="Completar tarea">
-            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </button>
-        </td>
-        <td style="font-weight: 500; color: #ffffff; padding: 10px 8px;">
-          <span class="${isComp ? 'line-through' : ''}">${t.title}</span>
-        </td>
-        <td style="padding: 10px 8px; color: #ffffff; font-size: 13px;">
-          ${t.assignee || 'SEBASTIAN'}
-        </td>
-        <td style="padding: 10px 8px; font-size: 13px; ${t.overdue && !isComp ? 'color:#ff7369;' : 'color:#ffffff;'}">
-          ${t.due || '-'}
-        </td>
-        <td style="padding: 10px 8px;">
-          ${getPriorityPill(t.priority)}
-        </td>
-        <td style="padding: 10px 8px; color: #e5e7eb; font-size: 13px;">
-          ${t.status || 'Por hacer'}
-        </td>
-      </tr>
-    `;
-  }
-
-  // RENDER PROJECT VIEW (100% REPLICA SCREENSHOT 5)
-      function renderProjectView(projName) {
+  // =========================================================================
+  // RENDER PROJECT VIEW (100% ASANA SCREENSHOT 5 / REAL PORTAL)
+  // =========================================================================
+  function renderProjectView(projName) {
     currentOpenProject = projName;
-    document.getElementById('projHeaderTitle').textContent = projName;
-    const sq = document.getElementById('projHeaderSq');
-    if (sq) {
-      sq.className = 'proj-sq-48 pink';
-      sq.innerHTML = '<svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="#ffffff"/></svg>';
-    }
+    const headerTitle = document.getElementById('projHeaderTitle');
+    if (headerTitle) headerTitle.textContent = projName;
+
+    // Active subtab button style
+    document.querySelectorAll('.subview-tabs-nav .s-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-proj-tab') === activeProjectSubTab);
+    });
 
     const container = document.getElementById('projectTabContent');
-    const all = loadTasks().filter(t => t.project === projName);
+    if (!container) return;
 
-    if (activeProjectSubTab === 'resumen' || activeProjectSubTab === 'lista') {
-      container.innerHTML = `
-        <table class="task-table" style="width:100%; border-collapse:collapse; margin-top: 4px;">
+    let all = loadTasks().filter(t => t.project === projName);
+
+    // Filter handling
+    if (currentFilter === 'incomplete') {
+      all = all.filter(t => !t.completed);
+    } else if (currentFilter === 'completed') {
+      all = all.filter(t => t.completed);
+    } else if (currentFilter === 'high') {
+      all = all.filter(t => t.priority === 'Alta');
+    }
+
+    // Sort handling
+    if (currentSort === 'priority') {
+      const prioOrder = { 'Alta': 1, 'Media': 2, 'Baja': 3 };
+      all.sort((a, b) => (prioOrder[a.priority] || 4) - (prioOrder[b.priority] || 4));
+    } else if (currentSort === 'title') {
+      all.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    if (activeProjectSubTab === 'lista') {
+      // Sections definition matching Asana Screenshot 5
+      const sections = ['Pendientes activos', 'En revisión', 'Completados'];
+
+      let html = `
+        <table class="asana-table-lista">
           <thead>
-            <tr style="border-bottom:1px solid #333438; color:#9ca3af; font-size:12px; font-weight:500; text-align:left;">
-              <th style="width: 36px; padding: 10px 8px;"></th>
-              <th style="padding: 10px 8px; font-weight: 500;">Nombre de la tarea</th>
-              <th style="padding: 10px 8px; font-weight: 500;">Responsable</th>
-              <th style="padding: 10px 8px; font-weight: 500;">Fecha de entrega</th>
-              <th style="padding: 10px 8px; font-weight: 500;">Prioridad</th>
-              <th style="padding: 10px 8px; font-weight: 500;">Estado</th>
+            <tr>
+              <th style="width: 34px;"></th>
+              <th style="width: 44%;">Nombre de la tarea</th>
+              <th style="width: 15%;">Responsable</th>
+              <th style="width: 11%;">Fecha de entrega</th>
+              <th style="width: 10%;">Estado</th>
+              <th style="width: 10%;">Responsable (Área/Dept)</th>
+              <th style="width: 7%;">Prioridad</th>
+              <th style="width: 24px; text-align:center; color:#6b7280; font-size:14px;">+</th>
             </tr>
           </thead>
           <tbody>
-            ${all.map(t => renderProjTaskRow(t)).join('')}
+      `;
+
+      sections.forEach(sec => {
+        const secSafe = sec.replace(/\s+/g, '_').toLowerCase();
+        let secTasks = all.filter(t => (t.section || 'Pendientes activos') === sec);
+        const isCollapsed = collapsedSections.has(sec);
+
+        html += `
+          <!-- Section Header Row -->
+          <tr class="section-hdr-row" data-section-name="${sec}">
+            <td colspan="8">
+              <div class="section-hdr-content">
+                <button type="button" class="btn-section-toggle ${isCollapsed ? 'collapsed' : ''}" data-toggle-sec="${sec}" aria-label="Alternar sección ${sec}">
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+                </button>
+                <span class="section-title">${sec}</span>
+                <span class="section-count">${secTasks.length}</span>
+              </div>
+            </td>
+          </tr>
+        `;
+
+        if (!isCollapsed) {
+          secTasks.forEach(t => {
+            html += `
+              <tr class="asana-task-row" data-task-row-id="${t.id}" data-section="${sec}">
+                <td class="col-check">
+                  <button type="button" class="task-check-circle ${t.completed ? 'completed' : ''}" data-complete-id="${t.id}" aria-label="Completar ${t.title}">
+                    ${t.completed ? '<svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#fff"></path></svg>' : ''}
+                  </button>
+                </td>
+                <td class="col-name">
+                  <div class="task-title-cell">
+                    <span class="task-title-text ${t.completed ? 'completed' : ''}">${t.title}</span>
+                    ${t.likes ? `<span class="task-badge likes" title="${t.likes} me gusta">👍 ${t.likes}</span>` : ''}
+                    ${t.commentsCount ? `<span class="task-badge comments" title="${t.commentsCount} comentarios">💬 ${t.commentsCount}</span>` : ''}
+                  </div>
+                </td>
+                <td class="col-assignee">
+                  ${t.assignee ? `
+                    <div class="assignee-cell">
+                      <div class="avatar-sm" style="background:${t.assigneeAvatarBg || '#6b7280'};">${t.assigneeAvatar || 'SG'}</div>
+                      <span class="assignee-name" title="${t.assignee}">${t.assigneeShort || t.assignee}</span>
+                    </div>
+                  ` : `
+                    <div class="assignee-cell empty">
+                      <div class="avatar-sm outline">👤</div>
+                    </div>
+                  `}
+                </td>
+                <td class="col-due">
+                  <span class="due-text ${t.overdue && !t.completed ? 'overdue' : ''}">${t.due || '-'}</span>
+                </td>
+                <td class="col-status">
+                  ${renderStatusPill(t.status)}
+                </td>
+                <td class="col-area">
+                  ${renderAreaPill(t.area)}
+                </td>
+                <td class="col-priority">
+                  ${renderPriorityPill(t.priority)}
+                </td>
+                <td class="col-plus"></td>
+              </tr>
+            `;
+          });
+
+          // Inline Add Task Row for this section
+          html += `
+            <tr class="inline-add-task-row" data-section="${sec}">
+              <td colspan="8">
+                <div class="inline-add-task-wrap" id="inlineAddWrap-${secSafe}">
+                  <button type="button" class="btn-inline-add-task" data-inline-add-sec="${sec}">
+                    <span class="inline-add-icon">+</span>
+                    <span class="inline-add-label">Agregar tarea</span>
+                  </button>
+                  <div class="inline-input-box" id="inlineInputBox-${secSafe}" style="display:none;">
+                    <input type="text" class="inline-task-input" id="inlineInput-${secSafe}" placeholder="Escribe el nombre de la tarea y presiona Enter...">
+                    <div class="inline-actions" style="display:flex; gap:6px;">
+                      <button type="button" class="btn-inline-save" data-inline-save-sec="${sec}">Guardar</button>
+                      <button type="button" class="btn-inline-cancel" data-inline-cancel-sec="${sec}">Cancelar</button>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          `;
+        }
+      });
+
+      html += `
           </tbody>
         </table>
-        <div style="margin-top: 16px;">
-          <button type="button" class="btn-project-add-task-row" id="btnAddProjTaskRow" data-action="open-create-task" style="background:#ffffff; color:#161616; border:1px solid #ffffff; border-radius:6px; padding:8px 16px; font-size:13px; font-weight:500; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
-            + Agregar tarea a ${projName}
-          </button>
-        </div>
       `;
+
+      container.innerHTML = html;
     } else if (activeProjectSubTab === 'tablero') {
-      const kanbanSections = ['Por hacer', 'En curso', 'Completado'];
+      const kanbanSections = ['Pendientes activos', 'En revisión', 'Completados'];
       container.innerHTML = `
         <div class="kanban-board" style="display:flex; gap:14px; overflow-x:auto; padding-bottom:16px; margin-top:12px;">
           ${kanbanSections.map(sec => {
-            const secTasks = all.filter(t => (t.status || 'Por hacer') === sec);
+            const secTasks = all.filter(t => (t.section || 'Pendientes activos') === sec);
             return `
               <div class="kanban-col" style="min-width:280px; width:280px; background:#1e1f23; border:1px solid var(--border-card); border-radius:8px; padding:12px; display:flex; flex-direction:column; gap:10px;">
                 <div class="kanban-col-hdr" style="display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:13px; color:var(--text-primary); border-bottom:1px solid var(--border-card); padding-bottom:8px;">
@@ -5029,8 +6120,8 @@ dialog.dialog-invite {
                     <div class="kanban-card" data-task-row-id="${t.id}" style="background:#26272b; border:1px solid var(--border-control); border-radius:6px; padding:10px; cursor:pointer;">
                       <div class="kanban-card-title" style="font-weight:600; font-size:13px; margin-bottom:6px; color:var(--text-primary);">${t.title}</div>
                       <div class="kanban-card-meta" style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-muted);">
-                        <span>👤 ${t.assignee || 'Sin asignar'}</span>
-                        <span style="${t.overdue ? 'color:#ff7369; font-weight:600;' : ''}">${t.due || '-'}</span>
+                        <span>👤 ${t.assigneeShort || t.assignee || 'Sin asignar'}</span>
+                        <span style="${t.overdue && !t.completed ? 'color:#ff7369; font-weight:600;' : ''}">${t.due || '-'}</span>
                       </div>
                     </div>
                   `).join('')}
@@ -5053,12 +6144,36 @@ dialog.dialog-invite {
               <div class="timeline-item" data-task-row-id="${t.id}" style="display:grid; grid-template-columns: 240px 1fr; gap:12px; align-items:center;">
                 <div style="font-weight:500; font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${t.title}</div>
                 <div class="timeline-bar-bg" style="background:rgba(255,255,255,0.04); height:24px; border-radius:4px; position:relative;">
-                  <div class="timeline-bar" style="position:absolute; left: ${(idx * 8) % 60}%; width: 32%; height:100%; background:${idx % 2 === 0 ? '#ff584a' : '#1473e6'}; border-radius:4px; display:flex; align-items:center; padding:0 8px; font-size:11px; font-weight:600; color:#fff;">
+                  <div class="timeline-bar" style="position:absolute; left: ${(idx * 12) % 60}%; width: 32%; height:100%; background:${idx % 2 === 0 ? '#ff584a' : '#1473e6'}; border-radius:4px; display:flex; align-items:center; padding:0 8px; font-size:11px; font-weight:600; color:#fff;">
                     ${t.due || 'Fecha fijada'}
                   </div>
                 </div>
               </div>
             `).join('')}
+          </div>
+        </div>
+      `;
+    } else if (activeProjectSubTab === 'panel') {
+      const compCount = all.filter(t => t.completed).length;
+      const pendCount = all.length - compCount;
+      const overdueCount = all.filter(t => t.overdue && !t.completed).length;
+      container.innerHTML = `
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-top:12px;">
+          <div style="background:#26272b; padding:16px; border-radius:8px; border:1px solid var(--border-card);">
+            <div style="font-size:11px; color:#a0a0a0; text-transform:uppercase;">Total Tareas</div>
+            <div style="font-size:24px; font-weight:700; color:#fff; margin-top:4px;">${all.length}</div>
+          </div>
+          <div style="background:#26272b; padding:16px; border-radius:8px; border:1px solid var(--border-card);">
+            <div style="font-size:11px; color:#a0a0a0; text-transform:uppercase;">Completadas</div>
+            <div style="font-size:24px; font-weight:700; color:#5cd27e; margin-top:4px;">${compCount}</div>
+          </div>
+          <div style="background:#26272b; padding:16px; border-radius:8px; border:1px solid var(--border-card);">
+            <div style="font-size:11px; color:#a0a0a0; text-transform:uppercase;">Pendientes Activos</div>
+            <div style="font-size:24px; font-weight:700; color:#eab308; margin-top:4px;">${pendCount}</div>
+          </div>
+          <div style="background:#26272b; padding:16px; border-radius:8px; border:1px solid var(--border-card);">
+            <div style="font-size:11px; color:#a0a0a0; text-transform:uppercase;">Con Retraso</div>
+            <div style="font-size:24px; font-weight:700; color:#ef4444; margin-top:4px;">${overdueCount}</div>
           </div>
         </div>
       `;
@@ -5077,6 +6192,7 @@ dialog.dialog-invite {
         </div>
       `;
     } else {
+      // Default Resumen
       container.innerHTML = `
         <div style="background:#26272b; padding:24px; border-radius:8px; border:1px solid var(--border-card); max-width:850px; margin-top:12px;">
           <h2 style="font-size:16px; font-weight:700; margin-bottom:8px; color:#fff;">Resumen del Proyecto: ${projName}</h2>
@@ -5084,11 +6200,11 @@ dialog.dialog-invite {
           <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-top:14px;">
             <div style="background:#1e1f23; padding:14px; border-radius:6px; border:1px solid var(--border-card);">
               <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Tareas Pendientes</div>
-              <div style="font-size:22px; font-weight:700; color:#ff7369; margin-top:4px;">${all.filter(t => t.status !== 'Finalizado').length}</div>
+              <div style="font-size:22px; font-weight:700; color:#ff7369; margin-top:4px;">${all.filter(t => !t.completed).length}</div>
             </div>
             <div style="background:#1e1f23; padding:14px; border-radius:6px; border:1px solid var(--border-card);">
               <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Tareas Finalizadas</div>
-              <div style="font-size:22px; font-weight:700; color:#5cd27e; margin-top:4px;">${all.filter(t => t.status === 'Finalizado').length}</div>
+              <div style="font-size:22px; font-weight:700; color:#5cd27e; margin-top:4px;">${all.filter(t => t.completed).length}</div>
             </div>
           </div>
         </div>
@@ -5096,42 +6212,274 @@ dialog.dialog-invite {
     }
   }
 
-  // TASK DRAWER
+  // =========================================================================
+  // TASK DRAWER (INTERACTIVE LIVE EDITING & PERSISTENCE)
+  // =========================================================================
   function openTaskDrawer(taskId) {
     const all = loadTasks();
     const task = all.find(t => t.id === taskId);
     if (!task) return;
     activeTaskId = taskId;
 
-    document.getElementById('drawerTaskTitle').value = task.title;
-    document.getElementById('drawerAssignee').textContent = task.assignee || 'SEBASTIAN';
-    document.getElementById('drawerDue').textContent = task.due || 'Sin fecha';
-    document.getElementById('drawerProject').textContent = task.project;
-    document.getElementById('drawerPriority').textContent = task.priority || 'Normal';
-    document.getElementById('drawerDesc').value = task.desc || '';
-    
-    const isComp = task.tab === 'finalizadas';
-    document.getElementById('drawerCompleteLabel').textContent = isComp ? '✓ Finalizada (Reabrir)' : 'Marcar como finalizada';
+    const drawer = document.getElementById('taskDrawer');
+    document.getElementById('drawerTaskTitle').value = task.title || '';
 
-    const subList = document.getElementById('drawerSubtasksList');
-    subList.innerHTML = `
-      <div style="display:flex; align-items:center; gap:8px; font-size:12.5px;">
-        <input type="checkbox" checked>
-        <span>Revisión de especificaciones preliminares</span>
-      </div>
-      <div style="display:flex; align-items:center; gap:8px; font-size:12.5px;">
-        <input type="checkbox">
-        <span>Subir comprobante o registro fotográfico a Drive</span>
-      </div>
-    `;
+    // Assignee
+    const selAssignee = document.getElementById('drawerAssigneeSelect');
+    if (selAssignee) selAssignee.value = task.assignee || 'SEBASTIAN JESUS ROCA';
 
-    document.getElementById('taskDrawer').classList.add('open');
+    // Due
+    const inpDue = document.getElementById('drawerDueInput');
+    if (inpDue) inpDue.value = task.due || '';
+
+    // Project
+    const selProj = document.getElementById('drawerProjectSelect');
+    if (selProj) {
+      const projs = loadProjects();
+      selProj.innerHTML = projs.map(p => `<option value="${p.name}">${p.name}</option>`).join('');
+      selProj.value = task.project || currentOpenProject || 'Minutas de reunión del área';
+    }
+
+    // Section
+    const selSec = document.getElementById('drawerSectionSelect');
+    if (selSec) selSec.value = task.section || 'Pendientes activos';
+
+    // Status
+    const selStatus = document.getElementById('drawerStatusSelect');
+    if (selStatus) selStatus.value = task.status || (task.completed ? 'Completado' : 'En progreso');
+
+    // Area
+    const selArea = document.getElementById('drawerAreaSelect');
+    if (selArea) selArea.value = task.area || 'Procesos';
+
+    // Priority
+    const selPrio = document.getElementById('drawerPrioritySelect');
+    if (selPrio) selPrio.value = task.priority || 'Media';
+
+    // Description
+    const txtDesc = document.getElementById('drawerDesc');
+    if (txtDesc) txtDesc.value = task.desc || '';
+
+    // Complete button
+    const btnComp = document.getElementById('drawerCompleteLabel');
+    if (btnComp) {
+      btnComp.textContent = task.completed ? '✓ Finalizada (Reabrir)' : 'Marcar como finalizada';
+    }
+
+    renderDrawerSubtasks(task);
+    renderDrawerComments(task);
+
+    drawer.classList.add('open');
   }
 
   function closeTaskDrawer() {
     document.getElementById('taskDrawer').classList.remove('open');
     activeTaskId = null;
   }
+
+  function updateActiveTaskFromDrawer() {
+    if (!activeTaskId) return;
+    const list = loadTasks();
+    const task = list.find(t => t.id === activeTaskId);
+    if (!task) return;
+
+    task.title = document.getElementById('drawerTaskTitle').value.trim() || task.title;
+
+    const selAssignee = document.getElementById('drawerAssigneeSelect');
+    if (selAssignee) {
+      task.assignee = selAssignee.value;
+      if (task.assignee.includes('GONZALO')) {
+        task.assigneeAvatar = 'GY'; task.assigneeAvatarBg = '#f43f5e'; task.assigneeShort = 'GONZALO C...';
+      } else if (task.assignee.includes('Francisco')) {
+        task.assigneeAvatar = 'FA'; task.assigneeAvatarBg = '#eab308'; task.assigneeShort = 'Francisco Ar...';
+      } else if (task.assignee.includes('Marcelo')) {
+        task.assigneeAvatar = 'MV'; task.assigneeAvatarBg = '#3b82f6'; task.assigneeShort = 'Marcelo V...';
+      } else if (task.assignee.includes('BIM')) {
+        task.assigneeAvatar = 'BM'; task.assigneeAvatarBg = '#06b6d4'; task.assigneeShort = 'Equipo BIM';
+      } else if (task.assignee.includes('Lean')) {
+        task.assigneeAvatar = 'LN'; task.assigneeAvatarBg = '#8b5cf6'; task.assigneeShort = 'Equipo Lean';
+      } else if (task.assignee.includes('Sin asignar')) {
+        task.assigneeAvatar = ''; task.assigneeShort = '';
+      } else {
+        task.assigneeAvatar = 'SG'; task.assigneeAvatarBg = '#6b7280'; task.assigneeShort = 'SEBASTIAN J...';
+      }
+    }
+
+    const inpDue = document.getElementById('drawerDueInput');
+    if (inpDue) task.due = inpDue.value.trim();
+
+    const selProj = document.getElementById('drawerProjectSelect');
+    if (selProj) task.project = selProj.value;
+
+    const selSec = document.getElementById('drawerSectionSelect');
+    if (selSec) task.section = selSec.value;
+
+    const selStatus = document.getElementById('drawerStatusSelect');
+    if (selStatus) {
+      task.status = selStatus.value;
+      task.completed = (task.status === 'Completado');
+    }
+
+    const selArea = document.getElementById('drawerAreaSelect');
+    if (selArea) task.area = selArea.value;
+
+    const selPrio = document.getElementById('drawerPrioritySelect');
+    if (selPrio) task.priority = selPrio.value;
+
+    const txtDesc = document.getElementById('drawerDesc');
+    if (txtDesc) task.desc = txtDesc.value.trim();
+
+    task.updatedAt = new Date().toISOString();
+    saveTasks(list);
+    BackendService.saveTask(task);
+  }
+
+  function renderDrawerSubtasks(task) {
+    const container = document.getElementById('drawerSubtasksList');
+    if (!container) return;
+    if (!task.subtasks) task.subtasks = [];
+
+    if (task.subtasks.length === 0) {
+      container.innerHTML = '<div style="font-size:12px; color:var(--text-muted); font-style:italic;">No hay subtareas registradas.</div>';
+      return;
+    }
+
+    container.innerHTML = task.subtasks.map((st, i) => `
+      <div class="drawer-subtask-item" style="display:flex; align-items:center; justify-content:space-between; padding:4px 6px; border-radius:4px;">
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; flex:1;">
+          <input type="checkbox" class="drawer-st-check" data-st-idx="${i}" ${st.completed ? 'checked' : ''}>
+          <span style="${st.completed ? 'text-decoration:line-through; color:#9ca3af;' : 'color:#ffffff;'}">${st.title}</span>
+        </label>
+        <button type="button" class="btn-remove-subtask" data-remove-st="${i}" style="background:transparent; border:none; color:#6b7280; cursor:pointer; font-size:12px;" title="Eliminar subtarea">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function renderDrawerComments(task) {
+    const container = document.getElementById('drawerCommentsList');
+    if (!container) return;
+    if (!task.comments) task.comments = [];
+
+    if (task.comments.length === 0) {
+      container.innerHTML = '<div style="font-size:12px; color:var(--text-muted); font-style:italic;">Sin comentarios aún.</div>';
+      return;
+    }
+
+    container.innerHTML = task.comments.map(c => `
+      <div class="drawer-comment-card" style="background:#252629; border-radius:6px; padding:8px 12px; margin-bottom:8px; border:1px solid #333438;">
+        <div class="drawer-comment-hdr" style="display:flex; justify-content:space-between; font-size:11px; color:#9ca3af; margin-bottom:4px;">
+          <strong style="color:#ffffff;">${c.author || 'Usuario'}</strong>
+          <span>${c.time || 'Reciente'}</span>
+        </div>
+        <div style="font-size:12.5px; color:#e5e7eb; line-height:1.4;">${c.text}</div>
+      </div>
+    `).join('');
+  }
+
+  // Attach live listeners for drawer inputs
+  ['drawerTaskTitle', 'drawerDueInput', 'drawerDesc'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', updateActiveTaskFromDrawer);
+  });
+  ['drawerAssigneeSelect', 'drawerProjectSelect', 'drawerSectionSelect', 'drawerStatusSelect', 'drawerAreaSelect', 'drawerPrioritySelect'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', updateActiveTaskFromDrawer);
+  });
+
+  // Drawer Subtasks & Comments clicks
+  document.addEventListener('click', (e) => {
+    // Toggle subtask checkbox
+    const stCheck = e.target.closest('.drawer-st-check');
+    if (stCheck && activeTaskId) {
+      const idx = parseInt(stCheck.getAttribute('data-st-idx'), 10);
+      const list = loadTasks();
+      const task = list.find(t => t.id === activeTaskId);
+      if (task && task.subtasks && task.subtasks[idx]) {
+        task.subtasks[idx].completed = stCheck.checked;
+        saveTasks(list);
+        BackendService.saveTask(task);
+        renderDrawerSubtasks(task);
+      }
+      return;
+    }
+
+    // Remove subtask
+    const btnRemSt = e.target.closest('.btn-remove-subtask');
+    if (btnRemSt && activeTaskId) {
+      const idx = parseInt(btnRemSt.getAttribute('data-remove-st'), 10);
+      const list = loadTasks();
+      const task = list.find(t => t.id === activeTaskId);
+      if (task && task.subtasks) {
+        task.subtasks.splice(idx, 1);
+        saveTasks(list);
+        BackendService.saveTask(task);
+        renderDrawerSubtasks(task);
+        showToast('Subtarea eliminada.');
+      }
+      return;
+    }
+
+    // Add subtask button or input submit
+    if ((e.target.closest('#btnSubmitDrawerSubtask') || e.target.closest('#btnAddSubtask')) && activeTaskId) {
+      const inp = document.getElementById('drawerSubtaskInput');
+      let title = inp ? inp.value.trim() : '';
+      if (!title && e.target.closest('#btnAddSubtask')) {
+        title = prompt('Nombre de la nueva subtarea:') || '';
+      }
+      if (title && title.trim()) {
+        const list = loadTasks();
+        const task = list.find(t => t.id === activeTaskId);
+        if (task) {
+          if (!task.subtasks) task.subtasks = [];
+          task.subtasks.push({ id: 'st_' + Date.now(), title: title.trim(), completed: false });
+          saveTasks(list);
+          BackendService.saveTask(task);
+          if (inp) inp.value = '';
+          renderDrawerSubtasks(task);
+          showToast('Subtarea agregada.');
+        }
+      }
+      return;
+    }
+
+    // Submit Drawer Comment
+    if (e.target.closest('#btnSubmitDrawerComment') && activeTaskId) {
+      const inp = document.getElementById('drawerCommentInput');
+      const text = inp ? inp.value.trim() : '';
+      if (!text) return;
+      const list = loadTasks();
+      const task = list.find(t => t.id === activeTaskId);
+      if (task) {
+        if (!task.comments) task.comments = [];
+        task.comments.push({
+          id: 'cm_' + Date.now(),
+          author: 'SEBASTIAN JESUS ROCA',
+          time: 'Hace un momento',
+          text: text
+        });
+        task.commentsCount = task.comments.length;
+        saveTasks(list);
+        BackendService.saveTask(task);
+        inp.value = '';
+        renderDrawerComments(task);
+        showToast('Comentario publicado.');
+      }
+      return;
+    }
+
+    // Delete task from drawer
+    if (e.target.closest('#btnDrawerDeleteTask') && activeTaskId) {
+      if (confirm('¿Deseas eliminar esta tarea?')) {
+        const idToDelete = activeTaskId;
+        const list = loadTasks().filter(t => t.id !== idToDelete);
+        saveTasks(list);
+        BackendService.deleteTask(idToDelete);
+        closeTaskDrawer();
+        showToast('Tarea eliminada.');
+      }
+      return;
+    }
+  });
 
   // DASH CHAT LOGIC
   function addDashMessage(sender, text) {
@@ -5149,11 +6497,11 @@ dialog.dialog-invite {
 
     setTimeout(() => {
       if (pLower.includes('hoy') || pLower.includes('trabajar')) {
-        addDashMessage('bot', `📋 **Tareas prioritarias para hoy en Salfa:**\n1. **Carlos Méndez — Topógrafo de campo** (Vence el lunes, alta prioridad en Obra Norte).\n2. **Excavadora CAT 320** (Planificada para el miércoles).\n3. Tienes **5 tareas con retraso** pendientes en *Minutas de reunión del área* y *Procesos*.\n\n¿Quieres que reasigne o programe un recordatorio para alguna?`);
+        addDashMessage('bot', `📋 **Tareas prioritarias para hoy en Salfa:**\n1. **Entrega de estructura de Marco de Gobernanza BIM** (Minutas de reunión del área).\n2. **Preparación de presentación para proyecto Sierra Gorda** (PMO - Con retraso).\n3. Tienes **tareas operativas** en *Procesos* y *Calendario de recursos*.\n\n¿Quieres que reasigne o entregue alguna actualización?`);
       } else if (pLower.includes('semanal') || pLower.includes('estado')) {
         addDashMessage('bot', `📝 **Borrador de Actualización Semanal:**\n• **Avance General:** 85% en hitos de planificación de obras norte.\n• **Recursos:** Maquinaria CAT 320 operativa y topografía coordinada.\n• **Gobernanza:** Estructuras BIM y Lean entregadas a revisión técnica.\n\n*He copiado el borrador listo para enviar a la jefatura de Salfa Montajes.*`);
       } else if (pLower.includes('excavadora') || pLower.includes('cat 320')) {
-        addDashMessage('bot', `🚜 **Excavadora CAT 320 — Obra norte:**\n• Asignada a: SEBASTIAN\n• Entrega: Miércoles\n• Proyecto: Calendario de recursos\n• Estado: En curso\n\n¿Deseas registrar un cambio de operador o extender la fecha de entrega?`);
+        addDashMessage('bot', `🚜 **Excavadora CAT 320 — Obra norte:**\n• Asignada a: Maquinaria\n• Entrega: Miércoles\n• Proyecto: Calendario de recursos\n• Estado: Abierto\n\n¿Deseas registrar un cambio de operador o extender la fecha de entrega?`);
       } else {
         addDashMessage('bot', `He procesado tu solicitud: *"${prompt}"*. Consulté la base de datos de Salfa Flow y tus proyectos están actualizados. ¿Deseas que cree una nueva tarea o hito con esta información?`);
       }
@@ -5205,7 +6553,9 @@ dialog.dialog-invite {
     updateRailMoreMenu();
   }
 
-  // GLOBAL CLICK HANDLER
+  // =========================================================================
+  // GLOBAL CLICK & INTERACTION HANDLER
+  // =========================================================================
   document.addEventListener('click', (e) => {
     // Omnibutton dropdown toggle
     if (e.target.closest('#btnOmnibutton')) {
@@ -5246,10 +6596,153 @@ dialog.dialog-invite {
     if (omniItem) {
       omniDropdown.classList.remove('open');
       const action = omniItem.getAttribute('data-omni-action');
-      if (action === 'task') dlgTask.showModal();
-      else if (action === 'project') dlgProj.showModal();
+      if (action === 'task') {
+        if (currentOpenProject) document.getElementById('taskProjectSelect').value = currentOpenProject;
+        dlgTask.showModal();
+      } else if (action === 'project') dlgProj.showModal();
       else if (action === 'goal') dlgGoal.showModal();
       else if (action === 'invite') dlgInvite.showModal();
+      return;
+    }
+
+    // Top "+ Agregar tarea" button in project subtoolbar
+    if (e.target.closest('#btnTopAddTask')) {
+      if (currentOpenProject) document.getElementById('taskProjectSelect').value = currentOpenProject;
+      dlgTask.showModal();
+      return;
+    }
+
+    // Subtoolbar tools
+    if (e.target.closest('#btnProjFilter')) {
+      const filters = ['all', 'incomplete', 'completed', 'high'];
+      const fLabels = { 'all': 'Todas', 'incomplete': 'Incompletas', 'completed': 'Completadas', 'high': 'Prioridad Alta' };
+      const nextIdx = (filters.indexOf(currentFilter) + 1) % filters.length;
+      currentFilter = filters[nextIdx];
+      showToast(`Filtro aplicado: ${fLabels[currentFilter]}`, '≡');
+      renderProjectView(currentOpenProject);
+      return;
+    }
+
+    if (e.target.closest('#btnProjSort')) {
+      const sorts = ['default', 'priority', 'title'];
+      const sLabels = { 'default': 'Por Secciones', 'priority': 'Por Prioridad', 'title': 'Alfabético' };
+      const nextIdx = (sorts.indexOf(currentSort) + 1) % sorts.length;
+      currentSort = sorts[nextIdx];
+      showToast(`Orden: ${sLabels[currentSort]}`, '⇅');
+      renderProjectView(currentOpenProject);
+      return;
+    }
+
+    if (e.target.closest('#btnProjGroup')) {
+      showToast('Agrupación: Por Sección (predeterminado Asana)', '⊞');
+      return;
+    }
+
+    if (e.target.closest('#btnProjOptions')) {
+      showToast('Opciones de visualización: Mostrando todos los campos corporativos.', '🗋');
+      return;
+    }
+
+    // Project status config button
+    if (e.target.closest('#btnConfigStatus')) {
+      const statuses = ['Al día', 'Con riesgo', 'Con retraso'];
+      const currentLabel = document.getElementById('projStatusLabel').textContent;
+      const nextIdx = (statuses.indexOf(currentLabel) + 1) % statuses.length;
+      const newStatus = statuses[nextIdx];
+      document.getElementById('projStatusLabel').textContent = newStatus;
+      showToast(`Estado del proyecto actualizado a: ${newStatus}`, '◌');
+      return;
+    }
+
+    // Share button in project
+    if (e.target.closest('#btnShareProject')) {
+      dlgInvite.showModal();
+      return;
+    }
+
+    // Customize button
+    if (e.target.closest('#btnCustomizeProject')) {
+      showToast('Menú Personalizar: Reglas, Formularios y Campos activos.', '👥');
+      return;
+    }
+
+    // Accordion Section Toggle
+    const secToggleBtn = e.target.closest('[data-toggle-sec]');
+    if (secToggleBtn) {
+      const secName = secToggleBtn.getAttribute('data-toggle-sec');
+      if (collapsedSections.has(secName)) {
+        collapsedSections.delete(secName);
+      } else {
+        collapsedSections.add(secName);
+      }
+      renderProjectView(currentOpenProject);
+      return;
+    }
+
+    // Inline Add Task: Open input box
+    const btnInlineAdd = e.target.closest('[data-inline-add-sec]');
+    if (btnInlineAdd) {
+      const sec = btnInlineAdd.getAttribute('data-inline-add-sec');
+      const secSafe = sec.replace(/\s+/g, '_').toLowerCase();
+      btnInlineAdd.style.display = 'none';
+      const inputBox = document.getElementById(`inlineInputBox-${secSafe}`);
+      if (inputBox) {
+        inputBox.style.display = 'flex';
+        const input = document.getElementById(`inlineInput-${secSafe}`);
+        if (input) input.focus();
+      }
+      return;
+    }
+
+    // Inline Add Task: Cancel
+    const btnInlineCancel = e.target.closest('[data-inline-cancel-sec]');
+    if (btnInlineCancel) {
+      const sec = btnInlineCancel.getAttribute('data-inline-cancel-sec');
+      const secSafe = sec.replace(/\s+/g, '_').toLowerCase();
+      const inputBox = document.getElementById(`inlineInputBox-${secSafe}`);
+      if (inputBox) inputBox.style.display = 'none';
+      const btnAdd = document.querySelector(`[data-inline-add-sec="${sec}"]`);
+      if (btnAdd) btnAdd.style.display = 'inline-flex';
+      return;
+    }
+
+    // Inline Add Task: Save
+    const btnInlineSave = e.target.closest('[data-inline-save-sec]');
+    if (btnInlineSave) {
+      const sec = btnInlineSave.getAttribute('data-inline-save-sec');
+      const secSafe = sec.replace(/\s+/g, '_').toLowerCase();
+      const input = document.getElementById(`inlineInput-${secSafe}`);
+      if (input && input.value.trim()) {
+        const title = input.value.trim();
+        const newTask = {
+          id: 't_' + Date.now(),
+          title,
+          project: currentOpenProject || 'Minutas de reunión del área',
+          color: (currentOpenProject || '').includes('Minutas') || currentOpenProject === 'GGIEO' ? 'pink' : 'orange',
+          section: sec,
+          assignee: 'SEBASTIAN JESUS ROCA',
+          assigneeShort: 'SEBASTIAN J...',
+          assigneeAvatar: 'SG',
+          assigneeAvatarBg: '#6b7280',
+          due: 'Hoy',
+          overdue: false,
+          status: sec === 'Completados' ? 'Completado' : 'En progreso',
+          area: 'Procesos',
+          priority: 'Media',
+          completed: sec === 'Completados',
+          desc: `Tarea entregada directamente en ${sec}.`,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          subtasks: [],
+          comments: []
+        };
+        const list = loadTasks();
+        list.unshift(newTask);
+        saveTasks(list);
+        BackendService.saveTask(newTask);
+        showToast(`✓ Tarea entregada en ${sec}.`);
+        renderProjectView(currentOpenProject);
+      }
       return;
     }
 
@@ -5296,17 +6789,25 @@ dialog.dialog-invite {
       const list = loadTasks();
       const item = list.find(x => x.id === id);
       if (item) {
-        item.tab = item.tab === 'finalizadas' ? 'proximas' : 'finalizadas';
-        item.status = item.tab === 'finalizadas' ? 'Finalizado' : 'En progreso';
+        item.completed = !item.completed;
+        if (item.completed) {
+          item.status = 'Completado';
+          showToast(`✓ Tarea "${item.title}" marcada como completada.`);
+        } else {
+          item.status = 'En progreso';
+          showToast(`Tarea "${item.title}" reabierta.`);
+        }
+        item.updatedAt = new Date().toISOString();
         saveTasks(list);
-        showToast(item.tab === 'finalizadas' ? 'Tarea marcada como finalizada.' : 'Tarea reabierta.');
+        BackendService.saveTask(item);
+        if (activeTaskId === id) openTaskDrawer(id);
       }
       return;
     }
 
     // Open Task drawer
     const taskRow = e.target.closest('[data-task-row-id]');
-    if (taskRow && !e.target.closest('button')) {
+    if (taskRow && !e.target.closest('button') && !e.target.closest('input')) {
       const taskId = taskRow.getAttribute('data-task-row-id');
       openTaskDrawer(taskId);
       return;
@@ -5366,6 +6867,64 @@ dialog.dialog-invite {
     }
   });
 
+  // Handle Enter key on inline inputs
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const target = e.target;
+      if (target && target.classList && target.classList.contains('inline-task-input')) {
+        e.preventDefault();
+        const idParts = target.id.split('-');
+        const secSafe = idParts[1];
+        const saveBtn = document.querySelector(`[data-inline-save-sec]`);
+        if (target.value.trim()) {
+          const title = target.value.trim();
+          // Find section from wrapper
+          const row = target.closest('.inline-add-task-row');
+          const sec = row ? row.getAttribute('data-section') : 'Pendientes activos';
+          const newTask = {
+            id: 't_' + Date.now(),
+            title,
+            project: currentOpenProject || 'Minutas de reunión del área',
+            color: (currentOpenProject || '').includes('Minutas') || currentOpenProject === 'GGIEO' ? 'pink' : 'orange',
+            section: sec,
+            assignee: 'SEBASTIAN JESUS ROCA',
+            assigneeShort: 'SEBASTIAN J...',
+            assigneeAvatar: 'SG',
+            assigneeAvatarBg: '#6b7280',
+            due: 'Hoy',
+            overdue: false,
+            status: sec === 'Completados' ? 'Completado' : 'En progreso',
+            area: 'Procesos',
+            priority: 'Media',
+            completed: sec === 'Completados',
+            desc: `Tarea entregada en ${sec}.`,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            subtasks: [],
+            comments: []
+          };
+          const list = loadTasks();
+          list.unshift(newTask);
+          saveTasks(list);
+          BackendService.saveTask(newTask);
+          target.value = '';
+          showToast(`✓ Tarea entregada en ${sec}.`);
+          renderProjectView(currentOpenProject);
+        }
+      }
+    } else if (e.key === 'Escape') {
+      const activeInline = document.querySelector('.inline-input-box[style*="flex"]');
+      if (activeInline) {
+        activeInline.style.display = 'none';
+        const wrap = activeInline.closest('.inline-add-task-wrap');
+        if (wrap) {
+          const btn = wrap.querySelector('.btn-inline-add-task');
+          if (btn) btn.style.display = 'inline-flex';
+        }
+      }
+    }
+  });
+
   // Topbar toggles
   document.getElementById('btnToggleSidebar').addEventListener('click', () => {
     document.getElementById('innerSidebar').classList.toggle('collapsed');
@@ -5395,21 +6954,14 @@ dialog.dialog-invite {
     const list = loadTasks();
     const item = list.find(x => x.id === activeTaskId);
     if (item) {
-      item.tab = item.tab === 'finalizadas' ? 'proximas' : 'finalizadas';
-      item.status = item.tab === 'finalizadas' ? 'Finalizado' : 'En progreso';
+      item.completed = !item.completed;
+      item.status = item.completed ? 'Completado' : 'En progreso';
+      item.updatedAt = new Date().toISOString();
       saveTasks(list);
+      BackendService.saveTask(item);
       openTaskDrawer(activeTaskId);
-      showToast(item.tab === 'finalizadas' ? 'Tarea marcada como finalizada.' : 'Tarea reabierta.');
+      showToast(item.completed ? '✓ Tarea marcada como finalizada.' : 'Tarea reabierta.');
     }
-  });
-  document.getElementById('btnAddSubtask').addEventListener('click', () => {
-    const title = prompt('Nombre de la subtarea:');
-    if (!title) return;
-    const subList = document.getElementById('drawerSubtasksList');
-    const div = document.createElement('div');
-    div.style.cssText = 'display:flex; align-items:center; gap:8px; font-size:12.5px;';
-    div.innerHTML = `<input type="checkbox"><span>${title}</span>`;
-    subList.appendChild(div);
   });
 
   // Dialog Close buttons
@@ -5421,35 +6973,74 @@ dialog.dialog-invite {
   document.getElementById('btnCloseGoal').addEventListener('click', () => dlgGoal.close());
   document.getElementById('btnCancelGoal').addEventListener('click', () => dlgGoal.close());
 
-  // Form Submissions
+  // Form Submissions: CREATE TASK / ENTREGAR TAREA
   document.getElementById('formCreateTask').addEventListener('submit', (e) => {
     e.preventDefault();
     const title = document.getElementById('taskTitleInput').value.trim();
-    const project = document.getElementById('taskProjectSelect').value;
-    const due = document.getElementById('taskDueInput').value.trim();
-    const tab = document.getElementById('taskTabSelect').value;
     if (!title) return;
 
-    const list = loadTasks();
-    list.unshift({
-      id: 't' + Date.now(),
+    const project = document.getElementById('taskProjectSelect').value;
+    const section = (document.getElementById('taskSectionSelect') ? document.getElementById('taskSectionSelect').value : 'Pendientes activos');
+    const assignee = (document.getElementById('taskAssigneeSelect') ? document.getElementById('taskAssigneeSelect').value : 'SEBASTIAN JESUS ROCA');
+    const due = document.getElementById('taskDueInput').value.trim() || 'Hoy';
+    const status = (document.getElementById('taskStatusSelect') ? document.getElementById('taskStatusSelect').value : 'En progreso');
+    const area = (document.getElementById('taskAreaSelect') ? document.getElementById('taskAreaSelect').value : 'Procesos');
+    const priority = (document.getElementById('taskPrioritySelect') ? document.getElementById('taskPrioritySelect').value : 'Media');
+    const desc = (document.getElementById('taskDescInput') ? document.getElementById('taskDescInput').value.trim() : '');
+
+    let assigneeAvatar = 'SG';
+    let assigneeAvatarBg = '#6b7280';
+    let assigneeShort = 'SEBASTIAN J...';
+    if (assignee.includes('GONZALO')) {
+      assigneeAvatar = 'GY'; assigneeAvatarBg = '#f43f5e'; assigneeShort = 'GONZALO C...';
+    } else if (assignee.includes('Francisco')) {
+      assigneeAvatar = 'FA'; assigneeAvatarBg = '#eab308'; assigneeShort = 'Francisco Ar...';
+    } else if (assignee.includes('Marcelo')) {
+      assigneeAvatar = 'MV'; assigneeAvatarBg = '#3b82f6'; assigneeShort = 'Marcelo V...';
+    } else if (assignee.includes('BIM')) {
+      assigneeAvatar = 'BM'; assigneeAvatarBg = '#06b6d4'; assigneeShort = 'Equipo BIM';
+    } else if (assignee.includes('Lean')) {
+      assigneeAvatar = 'LN'; assigneeAvatarBg = '#8b5cf6'; assigneeShort = 'Equipo Lean';
+    }
+
+    const newTask = {
+      id: 't_' + Date.now(),
       title,
       project,
       color: project.includes('Minutas') || project === 'GGIEO' ? 'pink' : 'orange',
+      section,
+      assignee,
+      assigneeShort,
+      assigneeAvatar,
+      assigneeAvatarBg,
       due,
-      tab,
-      overdue: tab === 'retraso',
-      assignee: 'SEBASTIAN',
-      priority: 'Media',
-      status: 'Por hacer',
-      desc: 'Creada desde el portal Salfa Flow.'
-    });
-    activeTab = tab;
-    document.querySelectorAll('[data-task-tab]').forEach(b => b.classList.toggle('active', b.getAttribute('data-task-tab') === activeTab));
+      overdue: false,
+      status,
+      area,
+      priority,
+      desc: desc || `Tarea entregada desde Salfa Flow.`,
+      completed: status === 'Completado' || section === 'Completados',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      subtasks: [],
+      comments: [
+        { id: 'cm_' + Date.now(), author: 'SEBASTIAN JESUS ROCA', time: 'Hace un momento', text: 'Tarea creada y entregada en Salfa Flow.' }
+      ]
+    };
+
+    const list = loadTasks();
+    list.unshift(newTask);
     saveTasks(list);
+    BackendService.saveTask(newTask);
+
     document.getElementById('taskTitleInput').value = '';
+    if (document.getElementById('taskDescInput')) document.getElementById('taskDescInput').value = '';
     dlgTask.close();
-    showToast('Tarea creada exitosamente.');
+    showToast(`✓ Tarea "${title}" entregada exitosamente.`);
+
+    if (currentOpenProject === project) {
+      renderProjectView(project);
+    }
   });
 
   document.getElementById('formCreateProject').addEventListener('submit', (e) => {
@@ -5459,7 +7050,8 @@ dialog.dialog-invite {
     if (!name) return;
 
     const projs = loadProjects();
-    projs.unshift({ name, color, icon: 'list', tasksCount: 0, badge: 'Nuevo' });
+    const newProj = { name, color, icon: 'list', tasksCount: 0, badge: 'Nuevo' };
+    projs.unshift(newProj);
     saveProjects(projs);
     document.getElementById('projNameInput').value = '';
     dlgProj.close();
@@ -5632,8 +7224,7 @@ dialog.dialog-invite {
     showToast('Navegación: Solo ícono activado.');
   });
 
-  // Nav visibility switches (Screenshot 2)
-    // HTML5 Drag and drop reordering for Navegación in Ajustes
+  // HTML5 Drag and drop reordering for Navegación in Ajustes
   const navList = document.getElementById('navVisibilityList');
   if (navList) {
     let draggedItem = null;
@@ -5713,9 +7304,7 @@ dialog.dialog-invite {
     }
   });
 
-  // Apply initial toggle states matching Screenshot 2:
-  // In Screenshot 2: Trabajo: OFF, Agentes: OFF, Estrategia: ON, Conocimientos: OFF, Personas: ON
-  // To allow user to see them by default, we keep them visible on initial load until toggled or when user matches screenshot!
+  // Apply initial toggle states
   document.getElementById('toggleNavTrabajo').checked = true;
   document.getElementById('toggleNavAgentes').checked = true;
   document.getElementById('toggleNavEstrategia').checked = true;
@@ -5747,7 +7336,7 @@ dialog.dialog-invite {
     dlgAddAccount.close();
   });
 
-  // Star favorite toggle in Project view (Screenshot 5)
+  // Star favorite toggle in Project view
   const btnStarProject = document.getElementById('btnStarProject');
   if (btnStarProject) {
     btnStarProject.addEventListener('click', () => {
@@ -5826,9 +7415,7 @@ dialog.dialog-invite {
 
   // ==========================================================================
   // SALFA FLOW · LOGICA MÓVIL ANDROID & PWA EN TERRENO
-  // ==========================================================================
-
-  // Registro de Service Worker PWA
+  // =========================================================================
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js').then((reg) => {
@@ -5839,7 +7426,6 @@ dialog.dialog-invite {
     });
   }
 
-  // Detección de conectividad (Online / Terreno Offline)
   function updateConnectionStatus() {
     const isOnline = navigator.onLine;
     const badge = document.getElementById('mobileConnectionBadge');
@@ -5860,7 +7446,6 @@ dialog.dialog-invite {
   });
   window.addEventListener('offline', updateConnectionStatus);
 
-  // Navegación Móvil Inferior (Bottom Nav)
   const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
   const actionSheet = document.getElementById('mobileActionSheet');
   const innerSidebarEl = document.getElementById('innerSidebar');
@@ -5871,7 +7456,6 @@ dialog.dialog-invite {
       const isTarget = item.getAttribute('data-target') === targetId;
       item.classList.toggle('active', isTarget);
     });
-    // Actualizar título en cabecera móvil
     const titleMap = {
       'view-inicio': '● Inicio',
       'view-mis-tareas': '✓ Mis Tareas',
@@ -5891,20 +7475,17 @@ dialog.dialog-invite {
       if (target) {
         actionSheet.classList.remove('open');
         if (target === 'view-project-detail') {
-          // Si pulsa proyectos en móvil, mostrar el proyecto activo o el menú
           switchView('view-project-detail');
         } else {
           switchView(target);
         }
         setMobileNavActive(target);
-        // Cerrar sidebar si estuviese abierta
         if (innerSidebarEl) innerSidebarEl.classList.remove('mobile-open');
         if (sidebarBackdrop) sidebarBackdrop.classList.remove('show');
       }
     });
   });
 
-  // Botón Central Flotante (FAB)
   const btnMobileFab = document.getElementById('btnMobileFab');
   if (btnMobileFab) {
     btnMobileFab.addEventListener('click', (e) => {
@@ -5914,14 +7495,13 @@ dialog.dialog-invite {
     });
   }
 
-  // Cerrar Action Sheet al hacer clic fuera
   document.addEventListener('click', (e) => {
     if (!e.target.closest('#mobileActionSheet') && !e.target.closest('#btnMobileFab')) {
       if (actionSheet) actionSheet.classList.remove('open');
     }
   });
 
-  // Acciones Rápidas del Action Sheet
+  // Mobile Action Sheet Buttons (Fixed dialog references)
   const btnActionNewTask = document.getElementById('btnActionNewTask');
   const btnActionFieldCapture = document.getElementById('btnActionFieldCapture');
   const btnActionVoiceNote = document.getElementById('btnActionVoiceNote');
@@ -5931,18 +7511,19 @@ dialog.dialog-invite {
   if (btnActionNewTask) {
     btnActionNewTask.addEventListener('click', () => {
       actionSheet.classList.remove('open');
-      dlgNewTask.showModal();
+      if (currentOpenProject) document.getElementById('taskProjectSelect').value = currentOpenProject;
+      dlgTask.showModal();
     });
   }
 
   if (btnActionNewProject) {
     btnActionNewProject.addEventListener('click', () => {
       actionSheet.classList.remove('open');
-      dlgNewProject.showModal();
+      dlgProj.showModal();
     });
   }
 
-  // Captura de Foto en Terreno / Cámara Nativa
+  // Field photo capture
   if (btnActionFieldCapture && mobileCameraInput) {
     btnActionFieldCapture.addEventListener('click', () => {
       actionSheet.classList.remove('open');
@@ -5961,22 +7542,30 @@ dialog.dialog-invite {
       const newId = 't_' + Date.now();
       const fieldTask = {
         id: newId,
-        titulo: `📸 Inspección Terreno [${dateStr} ${timeStr}]`,
-        proyecto: currentOpenProject || 'Minutas de reunión del área',
-        seccion: 'Por hacer',
-        responsable: 'sroca@salfamontajes.com',
-        fechaEntrega: now.toISOString().split('T')[0],
-        estado: 'En curso',
-        prioridad: 'Alta',
+        title: `📸 Inspección Terreno [${dateStr} ${timeStr}]`,
+        project: currentOpenProject || 'Minutas de reunión del área',
+        color: 'pink',
+        section: 'Pendientes activos',
+        assignee: 'SEBASTIAN JESUS ROCA',
+        assigneeShort: 'SEBASTIAN J...',
+        assigneeAvatar: 'SG',
+        assigneeAvatarBg: '#6b7280',
+        due: dateStr,
+        overdue: false,
+        status: 'En progreso',
+        priority: 'Alta',
         area: 'Operaciones',
-        descripcion: `Evidencia fotográfica capturada desde la aplicación móvil Salfa Flow en faena.\nArchivo: ${file.name} (${Math.round(file.size / 1024)} KB).`,
-        completada: false,
-        fechaCreacion: now.toISOString(),
-        ultimaModificacion: now.toISOString()
+        desc: `Evidencia fotográfica capturada en faena.\nArchivo: ${file.name} (${Math.round(file.size / 1024)} KB).`,
+        completed: false,
+        createdAt: now.toISOString(),
+        updatedAt: now.toISOString(),
+        subtasks: [],
+        comments: []
       };
 
       tasks.unshift(fieldTask);
       saveTasks(tasks);
+      BackendService.saveTask(fieldTask);
       renderAll();
       openTaskDrawer(newId);
 
@@ -5986,12 +7575,11 @@ dialog.dialog-invite {
         showToast('Foto de terreno registrada como nueva tarea', '📸');
       }
 
-      // Limpiar input
       mobileCameraInput.value = '';
     });
   }
 
-  // Minuta de voz rápida
+  // Quick voice note
   if (btnActionVoiceNote) {
     btnActionVoiceNote.addEventListener('click', () => {
       actionSheet.classList.remove('open');
@@ -5999,28 +7587,38 @@ dialog.dialog-invite {
       if (nota && nota.trim()) {
         const tasks = loadTasks();
         const newId = 't_' + Date.now();
-        tasks.unshift({
+        const vTask = {
           id: newId,
-          titulo: `🎤 ${nota.trim()}`,
-          proyecto: currentOpenProject || 'Minutas de reunión del área',
-          seccion: 'Por hacer',
-          responsable: 'sroca@salfamontajes.com',
-          fechaEntrega: new Date().toISOString().split('T')[0],
-          estado: 'Por iniciar',
-          prioridad: 'Media',
+          title: `🎤 ${nota.trim()}`,
+          project: currentOpenProject || 'Minutas de reunión del área',
+          color: 'pink',
+          section: 'Pendientes activos',
+          assignee: 'SEBASTIAN JESUS ROCA',
+          assigneeShort: 'SEBASTIAN J...',
+          assigneeAvatar: 'SG',
+          assigneeAvatarBg: '#6b7280',
+          due: 'Hoy',
+          overdue: false,
+          status: 'En progreso',
+          priority: 'Media',
           area: 'Operaciones',
-          descripcion: 'Nota rápida registrada desde el celular en faena.',
-          completada: false,
-          fechaCreacion: new Date().toISOString()
-        });
+          desc: 'Nota rápida registrada desde el celular en faena.',
+          completed: false,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          subtasks: [],
+          comments: []
+        };
+        tasks.unshift(vTask);
         saveTasks(tasks);
+        BackendService.saveTask(vTask);
         renderAll();
         showToast('Minuta rápida registrada', '🎤');
       }
     });
   }
 
-  // Alternar Sidebar en Móvil al tocar Avatar
+  // Mobile Avatar sidebar toggle
   const btnMobileAvatar = document.getElementById('btnMobileUserAvatar');
   if (btnMobileAvatar && innerSidebarEl) {
     btnMobileAvatar.addEventListener('click', () => {
@@ -6035,7 +7633,7 @@ dialog.dialog-invite {
     });
   }
 
-  // Dash IA en móvil
+  // Mobile Dash IA
   const btnMobileDash = document.getElementById('btnMobileDash');
   if (btnMobileDash) {
     btnMobileDash.addEventListener('click', () => {
@@ -6043,7 +7641,7 @@ dialog.dialog-invite {
     });
   }
 
-  // Manejador del botón Atrás físico/gestual de Android
+  // Android Back Handler
   window.handleAndroidBack = function() {
     if (actionSheet && actionSheet.classList.contains('open')) {
       actionSheet.classList.remove('open');
@@ -6063,14 +7661,13 @@ dialog.dialog-invite {
       if (sidebarBackdrop) sidebarBackdrop.classList.remove('show');
       return true;
     }
-    // Si estamos en otra vista que no sea inicio, volver a inicio
     const activeView = document.querySelector('.view-panel.active');
     if (activeView && activeView.id !== 'view-inicio') {
       switchView('view-inicio');
       setMobileNavActive('view-inicio');
       return true;
     }
-    return false; // Permite al WebView o app gestionar la salida
+    return false;
   };
 
   // Initial Boot
@@ -6078,6 +7675,8 @@ dialog.dialog-invite {
   renderAll();
   updateRailMoreMenu();
   updateConnectionStatus();
+  switchView('view-project-detail');
+  renderProjectView('Minutas de reunión del área');
 })();
 </script>
 </body>
