@@ -97,6 +97,15 @@ function doPost(e) {
       case 'guardarProyecto':
         res.data = guardarProyecto_(payload.proyecto || {}, usuario);
         break;
+      case 'eliminarTarea':
+        res.data = eliminarTarea_(payload.id || '', usuario);
+        break;
+      case 'cambiarEstadoTarea':
+        res.data = cambiarEstadoTarea_(payload.id, payload.nuevoEstado, payload.completada, usuario);
+        break;
+      case 'obtenerEstadoCompleto':
+        res.data = { tareas: listarTareas_(), proyectos: listarProyectos_() };
+        break;
       default:
         res = { ok: false, error: 'Acción no reconocida: ' + accion };
     }
@@ -177,7 +186,6 @@ function sincronizarDatos_(appState, usuario) {
 
   if (appState.tasks && appState.tasks.length > 0) {
     var hojaTareas = ss.getSheetByName(HOJA_TAREAS);
-    // Limpiar filas previas manteniendo encabezados
     var lastRow = hojaTareas.getLastRow();
     if (lastRow > 1) {
       hojaTareas.deleteRows(2, lastRow - 1);
@@ -188,15 +196,15 @@ function sincronizarDatos_(appState, usuario) {
         t.id || '',
         t.title || '',
         t.projectId || '',
-        t.projectName || '',
-        t.section || '',
-        t.assignee || '',
-        t.dueDate || '',
-        t.status || 'Abierto',
+        t.projectName || t.project || '',
+        t.section || 'Pendientes activos',
+        t.assignee || 'SEBASTIAN',
+        t.dueDate || t.due || '',
+        t.status || 'En progreso',
         t.priority || 'Media',
         t.area || '',
         t.desc || '',
-        t.completed ? 'SI' : 'NO',
+        (t.completed || t.tab === 'finalizadas' || t.status === 'Completado') ? 'SI' : 'NO',
         t.createdAt || new Date().toISOString(),
         new Date().toISOString()
       ];
@@ -209,6 +217,145 @@ function sincronizarDatos_(appState, usuario) {
 
   registrarBitacora_(usuario, 'SINCRONIZAR_TODO', 'GLOBAL', 'Sincronizadas ' + (appState.tasks ? appState.tasks.length : 0) + ' tareas');
   return { ok: true, timestamp: new Date().toISOString() };
+}
+
+/**
+ * Guarda o actualiza una tarea en la hoja TAREAS
+ */
+function guardarTarea_(tarea, usuario) {
+  if (!tarea || !tarea.title) {
+    throw new Error('La tarea debe contener al menos un título.');
+  }
+  var ss = getSs_();
+  inicializarLibro_();
+  var hoja = ss.getSheetByName(HOJA_TAREAS);
+  var id = tarea.id || ('t_' + new Date().getTime());
+  var lastRow = hoja.getLastRow();
+  var rowIndex = -1;
+
+  if (lastRow > 1) {
+    var ids = hoja.getRange(2, 1, lastRow - 1, 1).getValues();
+    for (var i = 0; i < ids.length; i++) {
+      if (String(ids[i][0]) === String(id)) {
+        rowIndex = i + 2;
+        break;
+      }
+    }
+  }
+
+  var ahora = new Date().toISOString();
+  var fila = [
+    id,
+    tarea.title || '',
+    tarea.projectId || '',
+    tarea.projectName || tarea.project || '',
+    tarea.section || 'Pendientes activos',
+    tarea.assignee || 'SEBASTIAN',
+    tarea.dueDate || tarea.due || '',
+    tarea.status || 'En progreso',
+    tarea.priority || 'Media',
+    tarea.area || '',
+    tarea.desc || '',
+    (tarea.completed || tarea.tab === 'finalizadas' || tarea.status === 'Completado') ? 'SI' : 'NO',
+    tarea.createdAt || ahora,
+    ahora
+  ];
+
+  if (rowIndex > 1) {
+    hoja.getRange(rowIndex, 1, 1, fila.length).setValues([fila]);
+    registrarBitacora_(usuario, 'ACTUALIZAR_TAREA', id, 'Tarea "' + tarea.title + '" actualizada');
+  } else {
+    hoja.appendRow(fila);
+    registrarBitacora_(usuario, 'CREAR_TAREA', id, 'Tarea "' + tarea.title + '" creada');
+  }
+
+  return { ok: true, id: id, tarea: tarea, timestamp: ahora };
+}
+
+/**
+ * Guarda o actualiza un proyecto en la hoja PROYECTOS
+ */
+function guardarProyecto_(proyecto, usuario) {
+  if (!proyecto || !proyecto.name) {
+    throw new Error('El proyecto debe contener un nombre.');
+  }
+  var ss = getSs_();
+  inicializarLibro_();
+  var hoja = ss.getSheetByName(HOJA_PROYECTOS);
+  var id = proyecto.id || ('p_' + new Date().getTime());
+  var lastRow = hoja.getLastRow();
+  var rowIndex = -1;
+
+  if (lastRow > 1) {
+    var ids = hoja.getRange(2, 1, lastRow - 1, 1).getValues();
+    for (var i = 0; i < ids.length; i++) {
+      if (String(ids[i][0]) === String(id) || String(ids[i][1]) === String(proyecto.name)) {
+        rowIndex = i + 2;
+        break;
+      }
+    }
+  }
+
+  var ahora = new Date().toISOString();
+  var fila = [
+    id,
+    proyecto.name,
+    proyecto.icon || 'list',
+    proyecto.status || 'En curso',
+    proyecto.desc || '',
+    proyecto.createdAt || ahora
+  ];
+
+  if (rowIndex > 1) {
+    hoja.getRange(rowIndex, 1, 1, fila.length).setValues([fila]);
+    registrarBitacora_(usuario, 'ACTUALIZAR_PROYECTO', id, 'Proyecto "' + proyecto.name + '" actualizado');
+  } else {
+    hoja.appendRow(fila);
+    registrarBitacora_(usuario, 'CREAR_PROYECTO', id, 'Proyecto "' + proyecto.name + '" creado');
+  }
+
+  return { ok: true, id: id, proyecto: proyecto, timestamp: ahora };
+}
+
+/**
+ * Elimina una tarea por ID
+ */
+function eliminarTarea_(id, usuario) {
+  var ss = getSs_();
+  var hoja = ss.getSheetByName(HOJA_TAREAS);
+  if (!hoja || hoja.getLastRow() <= 1) return { ok: false, error: 'No hay tareas' };
+
+  var ids = hoja.getRange(2, 1, hoja.getLastRow() - 1, 1).getValues();
+  for (var i = 0; i < ids.length; i++) {
+    if (String(ids[i][0]) === String(id)) {
+      hoja.deleteRow(i + 2);
+      registrarBitacora_(usuario, 'ELIMINAR_TAREA', id, 'Tarea eliminada');
+      return { ok: true, id: id };
+    }
+  }
+  return { ok: false, error: 'Tarea no encontrada' };
+}
+
+/**
+ * Cambia el estado de una tarea
+ */
+function cambiarEstadoTarea_(id, nuevoEstado, completada, usuario) {
+  var ss = getSs_();
+  var hoja = ss.getSheetByName(HOJA_TAREAS);
+  if (!hoja || hoja.getLastRow() <= 1) return { ok: false, error: 'No hay tareas' };
+
+  var ids = hoja.getRange(2, 1, hoja.getLastRow() - 1, 1).getValues();
+  for (var i = 0; i < ids.length; i++) {
+    if (String(ids[i][0]) === String(id)) {
+      var row = i + 2;
+      hoja.getRange(row, 8).setValue(nuevoEstado);
+      hoja.getRange(row, 12).setValue(completada ? 'SI' : 'NO');
+      hoja.getRange(row, 14).setValue(new Date().toISOString());
+      registrarBitacora_(usuario, 'CAMBIAR_ESTADO', id, 'Nuevo estado: ' + nuevoEstado + ' (Completada: ' + (completada ? 'SI' : 'NO') + ')');
+      return { ok: true, id: id, nuevoEstado: nuevoEstado, completada: completada };
+    }
+  }
+  return { ok: false, error: 'Tarea no encontrada' };
 }
 
 function listarTareas_() {
@@ -225,7 +372,7 @@ function listarTareas_() {
       projectName: r[3],
       section: r[4],
       assignee: r[5],
-      dueDate: r[6] ? Utilities.formatDate(new Date(r[6]), 'America/Santiago', 'yyyy-MM-dd') : '',
+      dueDate: r[6] ? (r[6] instanceof Date ? Utilities.formatDate(r[6], 'America/Santiago', 'yyyy-MM-dd') : String(r[6])) : '',
       status: r[7],
       priority: r[8],
       area: r[9],
@@ -272,4 +419,44 @@ function registrarBitacora_(usuario, accion, idElemento, detalle) {
 function jsonResponse_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// =========================================================================
+// FUNCIONES PÚBLICAS EXPUESTAS A GOOGLE.SCRIPT.RUN PARA EL CLIENTE HTML
+// =========================================================================
+
+function guardarTarea(tarea) {
+  var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
+  return guardarTarea_(tarea, usuario);
+}
+
+function guardarProyecto(proyecto) {
+  var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
+  return guardarProyecto_(proyecto, usuario);
+}
+
+function eliminarTarea(id) {
+  var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
+  return eliminarTarea_(id, usuario);
+}
+
+function cambiarEstadoTarea(id, nuevoEstado, completada) {
+  var usuario = Session.getActiveUser().getEmail() || 'sjroca@salfamontajes.com';
+  return cambiarEstadoTarea_(id, nuevoEstado, completada, usuario);
+}
+
+function listarTareas() {
+  return listarTareas_();
+}
+
+function listarProyectos() {
+  return listarProyectos_();
+}
+
+function obtenerEstadoCompleto() {
+  return {
+    tareas: listarTareas_(),
+    proyectos: listarProyectos_(),
+    timestamp: new Date().toISOString()
+  };
 }
