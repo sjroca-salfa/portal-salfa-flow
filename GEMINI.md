@@ -1,0 +1,2 @@
+# CONTINUIDAD ANTIGRAVITY
+Consulta el archivo [GUIA-CONTINUIDAD-ANTIGRAVITY.md](./GUIA-CONTINUIDAD-ANTIGRAVITY.md) para ver credenciales, enlaces públicos, repositorios y reglas maestras de desarrollo del ecosistema Portales Salfa Pilotos.
