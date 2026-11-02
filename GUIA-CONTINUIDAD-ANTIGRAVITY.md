@@ -29,8 +29,8 @@ Este documento contiene **toda la información operativa, credenciales, enlaces 
 | Parámetro | Detalle / Valor |
 | :--- | :--- |
 | **Correo Administrador** | `sjroca@salfamontajes.com` |
-| **Contraseña Maestra** | `REDACTED-ROTATED` *(o `admin` en entorno local)* |
-| **Bypass de Acceso** | Si el campo de contraseña se deja vacío al ingresar con `sjroca@salfamontajes.com`, el sistema asume automáticamente `REDACTED-ROTATED`. |
+| **Contraseña Maestra** | *(Eliminada de este documento tras incidente de exposición pública. No se documenta en texto plano; usar el gestor de contraseñas.)* |
+| **Bypass de Acceso** | **Eliminado (2026-11-02).** El alta o recuperación de la clave del administrador se hace exclusivamente vía "¿Olvidaste tu contraseña?" (código de un solo uso enviado al correo corporativo). |
 | **Rol Global** | `Administrador del Sistema` (Nivel 3 con control irrestricto de todos los portales y panel admin). |
 | **Dominio Requerido** | Exclusivamente `@salfamontajes.com`. |
 | **Estructura LocalStorage** | `salfa_auth_session` *(sesión activa)*, `salfa_corp_db_v2` *(BD local segura)*, `salfa_recordar` (`'1'`), `salfa_recordar_email`. |
